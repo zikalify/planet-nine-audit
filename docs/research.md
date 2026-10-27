@@ -99,19 +99,25 @@ claim is bounded to sources checked here, not a universal negative.
 
 Question (user-asked): do the published far-infrared candidate positions survive comparison against the published Planet Nine model ensemble, evaluated at the candidates' own observation epochs?
 
-Method: propagated all 100,000 CaltechDATA v3 reference samples (epoch 2018-06-01) back to each candidate's observation epoch with the repo's validated two-body propagator, then computed the minimum angular separation from each candidate position to (a) the 21,740 samples not flagged by published ZTF/DES/PS1 searches and (b) the 78,260 flagged samples. For the Phan et al. (2025) IRAS/AKARI pair we additionally computed the best JOINT match: the single sample minimizing the RSS of its 1983 and 2006/07 separations (a two-epoch linkage test).
+Method: propagated all 100,000 CaltechDATA v3 reference samples (epoch 2018-06-01) back to each candidate's observation epoch with the repo's validated two-body propagator, then computed distances from each candidate position to the nearest sampled orbits. For the Phan et al. (2025) IRAS/AKARI pair we additionally computed the best JOINT match: the single sample minimizing the RSS of its 1983 and 2006/07 separations (a two-epoch linkage test). Candidate coordinates were independently re-verified against the source papers for this test: Phan et al. Table 2 (35.74075, -48.5125; 35.18379, -49.2135; equinox not stated, J2000 assumed - a wrong-equinox error would be ~1 deg at most, negligible here) and the AKARI paper Table 2 (42.676, -15.021, epoch 2007/07/28; 45.297, -16.711, epoch 2006/07/30; explicitly J2000, position error ellipses 3.5 x 2.3 arcsec).
 
-Results:
-| Candidate | Epoch used | Min sep to unexcluded | Min sep to excluded |
-|---|---|---|---|
-| IRAS F02211-4844 | 1983-07-15 | 21.3 deg | 15.4 deg |
-| AKARI-MUSL J0220440-491247 | 2007-01-01 | 21.7 deg | 16.3 deg |
-| IRAS+AKARI best single-sample joint | both | RSS 30.4 deg (21.3 + 21.7) | RSS 22.5 deg |
-| FISSSDL J0250422-150114 | 2007-07-28 | 2.1 deg | 1.3 deg |
-| FISSSDL J0301112-164240 | 2006-07-30 | 4.4 deg | 1.3 deg |
+Finite-sample calibration: to interpret "no sample near a position" we measured the ensemble's own sky nearest-neighbor spacing at each epoch: median 0.19-0.20 deg, p95 0.81 deg, worst-case fringe gap ~8 deg. A candidate farther from every sample than the ensemble's own largest internal gap is outside the SAMPLED support; the underlying continuous posterior density there cannot be bounded from the sample alone.
 
-Reading: the Phan et al. IRAS/AKARI pair lies ~21 deg outside the entire BB21 model sky region at both epochs; no ensemble sample, excluded or not, comes near either position. Under the BB21 orbit family specifically, the pair is not a model-consistent Planet Nine. Phan et al. selected the pair by separation (42-69.6 arcmin, implying 500-700 AU) and did not publish a comparison against the BB21 sky region, so this quantification appears new, though the direction of the conclusion matches the paper's own caution. The two FISSSDL (AKARI 2025) positions sit 1.3-4.4 deg from the model band edge, geometrically consistent with the BB21 family at this coarse level - consistency, not support.
+Results (k-th nearest sampled orbit, unexcluded set):
+| Candidate | Epoch used | 1st | 5th | 20th |
+|---|---|---|---|---|
+| IRAS F02211-4844 | 1983-07-15 | 21.3 deg | 26.1 deg | 30.2 deg |
+| AKARI-MUSL J0220440-491247 | 2007-01-01 | 21.7 deg | 26.3 deg | 29.9 deg |
+| FISSSDL J0250422-150114 | 2007-07-28 | 2.1 deg | 5.1 deg | 8.4 deg |
+| FISSSDL J0301112-164240 | 2006-07-30 | 4.4 deg | 7.8 deg | 9.7 deg |
 
-Limits: (1) tests consistency with ONE published model; BB21 is not the 2026 evidence state (SCT26 weakens clustering to ~1.9 sigma over about half the sky, and no newer public ensemble was found in our review), so "inconsistent with BB21" is not "not Planet Nine". (2) Two-body propagation 35 years back from 2018: measured drift vs JPL n-body over 8.4 years is 71-111 arcsec; even linearly extrapolated (~0.1-0.3 deg) it is negligible against a 21 deg margin. (3) Candidate positional uncertainties (arcmin scale) and the IRAS 3-month observation window are likewise negligible. (4) The IRAS/AKARI linkage itself is unconfirmed by its authors. (5) Reproducibility: script and exact epochs are in tests/fixtures/ and this repo's history; inputs are the published CSV (MD5-verified) and published candidate coordinates.
+Best single-sample joint match for the IRAS/AKARI pair: RSS 30.4 deg (21.3 + 21.7 deg; nearest sampled orbit at ~1008 AU). For the excluded set: RSS 22.5 deg.
+
+Reading, stated carefully:
+- The Phan et al. pair lies far outside the sky region populated by the supplied ensemble: its nearest sampled orbit is ~100x the ensemble's median spacing and ~3x its worst fringe gap, at both epochs. So within the published v3 sample, no BB21-family orbit comes near the pair. This is a statement about the finite published sample, not a formal bound on the continuous BB21 posterior, and not evidence the candidate is physically false - Phan et al. selected the pair by angular separation (implying 500-700 AU) and did not claim BB21 sky-region consistency. We found no published quantification of the pair against the v3 ensemble sky map in our bounded literature check; we do not assert none exists.
+- The FISSSDL candidates' nearest sampled orbits (2.1 deg, 4.4 deg) are comparable to the ensemble's own largest fringe gaps (~8 deg). They sit at or just beyond the sparsely sampled fringe. That is geometric proximity, not calibrated consistency; no density/support threshold is established here.
+- Margins for the pair are robust to all quantified error sources: two-body propagation drift over 35 yr (~0.1-0.3 deg worst case), arcsec-to-arcmin positional errors, observation windows of months.
+
+Limits: (1) one published model only; BB21 is not the 2026 evidence state (SCT26 weakens clustering to ~1.9 sigma over about half the sky; no newer public ensemble found in our review). (2) Finite-sample statements only, calibrated as above. (3) The IRAS/AKARI linkage itself is unconfirmed by its authors. (4) Reproducibility: inputs are the published CSV (MD5-verified) and the paper coordinates above; code in this repo's history.
 
 Next cross-evidence test identified: cross-match the candidate positions/epochs against the known moving-object catalog (MPC MPChecker). Scripted CGI access is explicitly unsupported by MPC and JPL exposes no position-at-epoch identification API here, so this needs the browser-driven form; queued in TODO.md.
