@@ -8,7 +8,7 @@
 6. Only then add telescope-cost, visibility/weather constraints, and coordinate-safe visualization with probability mass clearly conditional on each model.
 7. Seek scientific review when the owner authorizes outreach. No review, researcher endorsement or telescope deployment has occurred.
 
-Possible value is better reproducibility and visible model sensitivity. We have not established uniqueness, discovery impact or publishable novelty. The current deliverable is a working audit kernel and a documented research direction.
+Possible value is better reproducibility and visible model sensitivity. We have not established uniqueness, discovery impact or publishable novelty. The current deliverable is the live evidence map on the public site (real published data only, validated pipelines) plus the audit kernel and this documented research direction. Shipped 2026-10-27.
 
 ## Update policy
 

@@ -18,8 +18,8 @@ Maintained as work proceeds. Items are checked only when verified; dates are UTC
 - [x] Candidate markers with source notes — 2026-10-27
 - [x] Clustering evidence panel with ours-vs-published table — 2026-10-27
 - [x] MPC census tracker with stability-classification caveat — 2026-10-27
-- [ ] Browser visual checks (desktop + mobile, live deployment)
-- [ ] Replace the toy synthetic demo on the public site with this map
+- [x] Browser visual checks (desktop + mobile, live deployment) — 2026-10-27
+- [x] Replace the toy synthetic demo on the public site with this map — 2026-10-27
 
 ## Open research leads (not started or not validated)
 - [ ] Sensitivity of clustering results to detection-epoch and barycentric/heliocentric conventions
