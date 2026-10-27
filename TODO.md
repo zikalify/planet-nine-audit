@@ -26,7 +26,7 @@ Maintained as work proceeds. Items are checked only when verified; dates are UTC
 - [x] Profiled 1-sigma direction interval via the paper's Sec VI method: ours 149 deg (+35.0/-58.5) vs published 151 (+34/-59) — 2026-10-27
 - [x] Two-epoch candidate-vs-ensemble test, finite-sample calibrated (IRAS/AKARI pair: nearest sampled orbit 21 deg away at both epochs, far outside sampled support; FISSSDL: fringe-proximity only; see docs/research.md) — 2026-10-27
 - [ ] Parallax-search null field (arXiv:2504.05473) overlap check against candidate positions
-- [ ] Cross-match published candidates against the current MPC known-object catalog with documented method
+- [x] Cross-match published candidates against the current MPC known-object catalog (MPChecker at each paper's stated epoch, documented parameters) — checks run 2026-10-27; results being written up before publication
 - [ ] Re-run the census/clustering tracker when Rubin publishes new distant TNOs with stability classifications
 - [ ] Calibrated survey selection functions (Sorcha-scale) — currently infeasible in this compute environment; would need to reproduce a published search's exclusions first
 - [ ] Independent scientific review — only if the owner authorizes outreach
