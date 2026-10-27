@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research diary - 27 October 2026 | Planet Nine audit</title>
+<link rel="stylesheet" href="../site/style.css">
+</head>
+<body>
+<header>
+  <h1>Research diary: 27 October 2026</h1>
+  <p class="tagline">Plain-English log of what this project actually checked and found today. Technical details and code are linked throughout. Analysis here is by this project and is not peer reviewed.</p>
+</header>
+<main>
+<section class="panel">
+<h2>Today in one paragraph</h2>
+<p>The site you are looking at stopped being a demo and became a real evidence map. We also ran our first two original tests: we checked four published "possible Planet Nine" infrared sightings against the best-known published model of where the planet should be, and we stress-tested the statistics behind the 2026 evidence. One honest surprise: the strength of the remaining evidence depends noticeably on a technical processing choice, not just on the sky itself.</p>
+</section>
+
+<section class="panel">
+<h2>1. The map is now real data only</h2>
+<p>The map on the <a href="../index.html">main page</a> shows where 21,740 simulated planets from the published Brown &amp; Batygin (2021) model would sit in the sky tonight, after removing the ones that published telescope searches (ZTF, DES, Pan-STARRS) say they would already have found. Every number comes from a public source you can check: the model file (<a href="https://data.caltech.edu/records/8fjad-x7y61">CaltechDATA</a>, checksum-verified), the object orbits (<a href="https://ssd.jpl.nasa.gov/tools/sbdb.html">JPL SBDB</a> and <a href="https://ssd.jpl.nasa.gov/horizons/">Horizons</a>), and the published papers. We validated our position calculations against JPL's own ephemeris (accurate to about an arcminute, far finer than the map's 1-degree grid). The old toy demo is gone.</p>
+</section>
+
+<section class="panel">
+<h2>2. Do the published infrared sightings fit the model's map?</h2>
+<p>Four candidate points have been published from far-infrared satellites: a pair from IRAS (1983) and AKARI (2006/07) by <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a>, and two single AKARI detections from <a href="https://arxiv.org/abs/2506.12854">a 2025 search</a>. We wound the 100,000-model ensemble back to each sighting's own date and asked: did any model planet sit there then?</p>
+<p><strong>Answer:</strong> for the IRAS/AKARI pair, the nearest model orbit in the published ensemble is about 21 degrees away at both dates - roughly 100 times the typical spacing between model points, so it lies far outside the region the published model actually covers. For the two single AKARI points, the nearest model orbits are 2-4 degrees away, similar to gaps at the model's own edges, so we can only say "near the fringe", nothing stronger.</p>
+<p><strong>What this does not mean:</strong> it does not show the sightings are wrong. It compares them against one 2021 model, and the 2026 evidence says that model is itself too narrow. We also initially overstated this as "outside the model"; on re-check we added a calibration (how tightly the 100,000 points actually cover the sky) and softened the wording to match what a finite sample can prove. That correction is part of the public record (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/research.md">technical write-up</a>).</p>
+</section>
+<section class="panel">
+<h2>3. Stress test: how fragile is the 2026 evidence?</h2>
+<p>The original Planet Nine case is that the orbits of distant small bodies point in suspiciously similar directions. A May 2026 reassessment (<a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>) found that with the latest object sample the signal is about 1.9 sigma - interesting, not convincing. We rebuilt their method independently and reproduce all nine of their published numbers to within 0.05 sigma (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/validation.md">validation notes</a>).</p>
+<p>Then we poked it. The method places each object at its "detection position", and different defensible choices for that position (first observation, middle, or most recent observation of each object's tracked arc) give different answers. On the current sample, the headline statistic slides from 1.9 sigma down to about 1.4 (or 1.1 in the 2D version) just by changing that choice, and the best-fit direction swings by about 28 degrees. The older, smaller sample that started the hunt is steadier (2.4 to 2.1 sigma).</p>
+<p><strong>Takeaway:</strong> the remaining evidence for clustering is not just weak; part of its weakness depends on a convention, not on new data. That strengthens the case that only new discoveries (for example from the Rubin Observatory) can settle this. Full table, method and limits: <a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/research.md">research notes</a>.</p>
+</section>
+
+<section class="panel">
+<h2>What we did not do today</h2>
+<p>No new object discoveries, no telescope time, no claim that Planet Nine does or does not exist. Today's work narrows and quality-checks what published evidence can say. Sources: <a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>; <a href="https://arxiv.org/abs/2410.18170">Siraj et al. 2025</a>; <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a>; <a href="https://arxiv.org/abs/2506.12854">AKARI far-infrared search 2025</a>; <a href="https://data.caltech.edu/records/8fjad-x7y61">Brown &amp; Batygin 2021 reference population</a>; <a href="https://www.minorplanetcenter.net/iau/MPCORB/Distant.txt">MPC distant objects</a>; JPL SBDB/Horizons.</p>
+</section>
+</main>
+</body>
+</html>

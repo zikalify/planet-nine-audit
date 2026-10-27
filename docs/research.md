@@ -121,3 +121,26 @@ Reading, stated carefully:
 Limits: (1) one published model only; BB21 is not the 2026 evidence state (SCT26 weakens clustering to ~1.9 sigma over about half the sky; no newer public ensemble found in our review). (2) Finite-sample statements only, calibrated as above. (3) The IRAS/AKARI linkage itself is unconfirmed by its authors. (4) Reproducibility: inputs are the published CSV (MD5-verified) and the paper coordinates above; code in this repo's history.
 
 Next cross-evidence test identified: cross-match the candidate positions/epochs against the known moving-object catalog (MPC MPChecker). Scripted CGI access is explicitly unsupported by MPC and JPL exposes no position-at-epoch identification API here, so this needs the browser-driven form; queued in TODO.md.
+
+## Robustness test 2026-10-27: sensitivity of the clustering statistics to detection-epoch and frame conventions
+
+Question: how much do the SCT26 conditional-likelihood results move under defensible alternative conventions for WHERE each object is placed at "detection"?
+
+Method: for all 25 sample objects we fetched full-precision JPL SBDB orbit solutions (data/sct26-elements-full.json, retrieved 2026-10-27, with first_obs/last_obs arc dates) and rebuilt the detection geometry under three epoch conventions - first observation (the convention matching the paper baseline), observation-arc midpoint, and last observation - propagating heliocentric positions with the repo's validated two-body propagator. Sanity: propagated vs Horizons geometry at first_obs agrees to median 63", max 218" (element-rounding and n-body drift scale, per docs/validation.md). Frame check: heliocentric vs barycentric placement is bounded by the Sun-SSB offset, verified via Horizons at 0.0049 AU on 2007-07-15; worst-case angular effect at q=40 AU is ~0.007 deg - negligible, not pursued further.
+
+Results (significance Z / direction, vs published anchors):
+| Sample | Method | first_obs (baseline) | arc midpoint | last_obs | Published |
+|---|---|---|---|---|---|
+| BB21 | Simple | 2.52/58 | 2.52/58 | 2.52/58 | 2.5/58 |
+| SCT25 | Simple | 2.78/67 | 2.78/67 | 2.78/67 | 2.8/67 |
+| SCT26 | Simple | 1.65/58 | 1.65/58 | 1.65/58 | 1.6/58 |
+| BB21 | 2D CL | 2.17/41 | 2.02/39 | 2.08/35 | 2.2/41 |
+| SCT25 | 2D CL | 2.72/126 | 2.35/132 | 1.86/134 | 2.7/126 |
+| SCT26 | 2D CL | 1.74/143 | 1.47/155 | 1.10/164 | 1.7/143 |
+| BB21 | 3D CL | 2.40/43 | 2.09/41 | 2.09/35 | 2.4/43 |
+| SCT25 | 3D CL | 2.74/125 | 2.40/134 | 2.01/140 | 2.7/125 |
+| SCT26 | 3D CL | 1.92/150 | 1.70/165 | 1.43/178 | 1.9/151 |
+
+Reading: the Simple (perihelion-longitude-only) statistics are exactly invariant to detection epoch, as they must be. The conditional-likelihood methods are NOT convention-invariant: on the current SCT26 sample the 3D significance slides 1.92 -> 1.70 -> 1.43 sigma across first/midpoint/last-observation conventions, the 2D from 1.74 to 1.10 sigma, and the best-fit direction swings ~28 deg. The older BB21 subsample is steadier (2.40 -> 2.09 sigma). So the surviving post-2026 clustering signal (~1.9 sigma) is not only weak; its strength depends materially on a processing convention, and under the last-observation convention it would sit near 1.1-1.4 sigma.
+
+Limits: variants use propagated geometry from current orbit solutions (two-body), not the actual astrometry at those dates; the paper's convention is first-observation, so baseline anchors remain the reference; these shifts measure convention sensitivity, not which convention is correct; SBDB solutions are current as of 2026-10-27 and themselves evolve. New analysis by this project, not peer reviewed. Code: p9audit/robustness.py. Data: data/sct26-sample.json, data/sct26-elements-full.json (JPL SBDB/Horizons, retrieval dates recorded).
