@@ -6,3 +6,6 @@ r=audit([],false);assert.equal(r.coverage.narrow.lower,0);assert.equal(r.coverag
 r=audit(['archive-a','archive-b'],true);assert.equal(r.coverage.broad.lower,r.coverage.broad.upper);
 for(const sel of [[],['archive-a'],['archive-b'],['archive-a','archive-b']])for(const ind of [true,false])for(const v of Object.values(audit(sel,ind).coverage)){assert.ok(v.lower>=0&&v.upper<=1&&v.lower<=v.upper)}
 console.log('Site arithmetic and flags: all assertions passed.');
+
+// Cross-language snapshot parity: the website default equals the Python result.
+const py=require("../examples/audit.json");const js=audit(["archive-a","archive-b"],false);for(const model of ["broad","narrow"])for(const bound of ["lower","upper"])assert.ok(Math.abs(py.coverage_by_model[model][bound]-js.coverage[model][bound])<1e-12);
