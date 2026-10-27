@@ -72,3 +72,25 @@ The current mathematical machinery is established probability theory, not a new 
 ## Executed real-data check
 
 The complete published v3 CSV was downloaded, its MD5 matched the record's `a38fa7579b4c9938b3deebecda55a845`, and all 100,000 rows were checked. The union of published ZTF/DES/PS1 binary detectability flags contains 78,260 particles; 21,740 have no positive flag. An independent Python set-union calculation reproduced that count. This **78.26% model fraction is not a confidence level**, is not a new exclusion result, and is not current 2026 sky coverage. The joint flag table and checksums are in `examples/caltech-v3-summary.json`. No current position was inferred.
+
+
+## 27 October 2026 additions: live evidence map sources
+
+- Siraj, Chyba & Tremaine 2026 full text (method Eqs. 6-22, sample Section V,
+  Table 1 anchors): https://arxiv.org/html/2604.25990 and
+  https://iopscience.iop.org/article/10.3847/1538-4357/ae6586
+- Siraj, Chyba & Tremaine 2025 sample table (51 objects with elements;
+  asterisks mark the 11 BB21 objects): https://arxiv.org/html/2410.18170v2
+- Per-object elements: JPL SBDB API (orbit solution ids and dates recorded in
+  data/sct26-sample.json). Detection geometry: JPL Horizons API, retrieved
+  2026-10-27.
+- Phan et al. 2025 IRAS/AKARI candidate pair (Table 2 coordinates;
+  authors: two positions do not determine an orbit, follow-up required):
+  https://arxiv.org/html/2504.17288v1
+- AKARI far-infrared search 2025 (two candidates, Table 2 coordinates;
+  unconfirmed, transient events not excluded):
+  https://arxiv.org/html/2506.12854
+- MPC census snapshot: https://www.minorplanetcenter.net/iau/MPCORB/Distant.txt
+
+No public post-2021 Planet Nine orbit ensemble was found in this review; the
+claim is bounded to sources checked here, not a universal negative.

@@ -1,0 +1,591 @@
+{
+ "description": "SCT26 apsidal-clustering sample (25 distant stable/metastable TNOs, a>160 AU) with detection geometry, reconstructed from published sources for independent replication of Siraj, Chyba & Tremaine 2026 (ApJ 1003 76, arXiv:2604.25990).",
+ "sources": {
+  "sample_membership": "Siraj et al. 2025 (ApJ 978 139, arXiv:2410.18170) Table 1 (51 objects, 21 with a>160; asterisks mark the 11 BB21 objects) plus four objects named in Siraj et al. 2026 Section V: 2017 OF201, 2021 RR205, 2023 KQ14, 2024 FX26",
+  "elements_api": "https://ssd-api.jpl.nasa.gov/sbdb.api",
+  "ephemeris_api": "https://ssd.jpl.nasa.gov/api/horizons.api"
+ },
+ "conventions": [
+  "Elements are current JPL SBDB heliocentric J2000 osculating solutions; the paper used JPL solutions current at its writing, barycentric a for sample cuts.",
+  "Detection geometry uses the first observation date in the current orbit solution (may be a precovery, not the discovery announcement).",
+  "phi = arccos((a(1-e^2)/r - 1)/e): the two admissible true anomalies at detection."
+ ],
+ "retrieved": "2026-10-27",
+ "objects": [
+  {
+   "name": "2021 LP43",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 170.0,
+    "e": 0.768,
+    "inc": 9.0,
+    "Omega": 134.0,
+    "varpi": 144.4,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "5",
+    "soln_date": "2026-03-11 20:42:45"
+   },
+   "detection": {
+    "first_obs": "2001-05-24",
+    "r_au": 52.1591759779,
+    "ecl_lon": 207.9876645,
+    "ecl_lat": 8.6470427,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 63.98350546245206
+  },
+  {
+   "name": "2016 TP120",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 170.0,
+    "e": 0.764,
+    "inc": 32.6,
+    "Omega": 127.0,
+    "varpi": 117.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "4",
+    "soln_date": "2026-03-11 20:06:16"
+   },
+   "detection": {
+    "first_obs": "2016-10-07",
+    "r_au": 63.12233823356,
+    "ecl_lon": 36.4861386,
+    "ecl_lat": -32.6413239,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 80.87341349678242
+  },
+  {
+   "name": "2016 QV89",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 177.0,
+    "e": 0.775,
+    "inc": 21.4,
+    "Omega": 173.0,
+    "varpi": 94.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "8",
+    "soln_date": "2025-02-13 02:56:41"
+   },
+   "detection": {
+    "first_obs": "2012-11-16",
+    "r_au": 50.95093184972,
+    "ecl_lon": 32.4853403,
+    "ecl_lat": -13.921981,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 60.00844896693641
+  },
+  {
+   "name": "2015 UN105",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 188.0,
+    "e": 0.779,
+    "inc": 37.0,
+    "Omega": 129.0,
+    "varpi": 1.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "1",
+    "soln_date": "2021-09-21 14:12:08"
+   },
+   "detection": {
+    "first_obs": "2014-11-04",
+    "r_au": 42.37482667802,
+    "ecl_lon": 14.9152908,
+    "ecl_lat": -34.4767792,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 17.168650776174573
+  },
+  {
+   "name": "2003 SS422",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 193.0,
+    "e": 0.795,
+    "inc": 16.8,
+    "Omega": 151.0,
+    "varpi": 358.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "9",
+    "soln_date": "2022-08-17 21:39:48"
+   },
+   "detection": {
+    "first_obs": "2000-09-03",
+    "r_au": 40.09473458231,
+    "ecl_lon": 343.6294328,
+    "ecl_lat": -3.7559138,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 14.029989898835938
+  },
+  {
+   "name": "2013 UT15",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 205.0,
+    "e": 0.786,
+    "inc": 10.7,
+    "Omega": 192.0,
+    "varpi": 84.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "6",
+    "soln_date": "2022-04-13 12:23:34"
+   },
+   "detection": {
+    "first_obs": "2004-09-21",
+    "r_au": 66.02718257461,
+    "ecl_lon": 7.8253063,
+    "ecl_lat": 0.7762511,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 76.2620864536763
+  },
+  {
+   "name": "2000 CR105",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 229.0,
+    "e": 0.807,
+    "inc": 22.7,
+    "Omega": 128.0,
+    "varpi": 85.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "5",
+    "soln_date": "2021-04-13 19:08:43"
+   },
+   "detection": {
+    "first_obs": "2000-02-06",
+    "r_au": 52.7450135739,
+    "ecl_lon": 135.1649231,
+    "ecl_lat": 2.87924,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 50.42293530046053
+  },
+  {
+   "name": "2012 VP113",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 268.0,
+    "e": 0.699,
+    "inc": 24.0,
+    "Omega": 90.9,
+    "varpi": 24.899999999999977,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "11",
+    "soln_date": "2024-12-10 07:50:08"
+   },
+   "detection": {
+    "first_obs": "2007-09-19",
+    "r_au": 82.21685851521,
+    "ecl_lon": 45.6015757,
+    "ecl_lat": -17.5732195,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 17.405737841180514
+  },
+  {
+   "name": "2013 FT28",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 288.0,
+    "e": 0.849,
+    "inc": 17.4,
+    "Omega": 218.0,
+    "varpi": 258.5,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "4",
+    "soln_date": "2021-05-04 14:50:29"
+   },
+   "detection": {
+    "first_obs": "2013-03-16",
+    "r_au": 58.91139336614,
+    "ecl_lon": 194.8820399,
+    "ecl_lat": -6.924768,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 64.5436860892011
+  },
+  {
+   "name": "2018 VM35",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 307.0,
+    "e": 0.855,
+    "inc": 8.48,
+    "Omega": 192.0,
+    "varpi": 135.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "5",
+    "soln_date": "2022-04-28 22:15:56"
+   },
+   "detection": {
+    "first_obs": "2018-11-06",
+    "r_au": 55.50458369176,
+    "ecl_lon": 80.4839513,
+    "ecl_lat": -7.875221,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 55.21952460986026
+  },
+  {
+   "name": "2014 WB556",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 285.0,
+    "e": 0.85,
+    "inc": 24.1,
+    "Omega": 115.0,
+    "varpi": 351.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "7",
+    "soln_date": "2021-12-14 21:43:32"
+   },
+   "detection": {
+    "first_obs": "2014-11-21",
+    "r_au": 44.85473030348,
+    "ecl_lon": 15.9397009,
+    "ecl_lat": -23.897267,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 26.120137297050913
+  },
+  {
+   "name": "2014 SR349",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 304.0,
+    "e": 0.844,
+    "inc": 18.0,
+    "Omega": 34.9,
+    "varpi": 16.899999999999977,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "8",
+    "soln_date": "2026-06-15 09:54:34"
+   },
+   "detection": {
+    "first_obs": "2014-09-19",
+    "r_au": 57.18813754142,
+    "ecl_lon": 326.1937969,
+    "ecl_lat": -16.8119971,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 51.1732403670707
+  },
+  {
+   "name": "2010 GB174",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 360.0,
+    "e": 0.865,
+    "inc": 21.5,
+    "Omega": 131.0,
+    "varpi": 118.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "6",
+    "soln_date": "2021-04-15 03:42:56"
+   },
+   "detection": {
+    "first_obs": "2009-06-26",
+    "r_au": 67.23416862177,
+    "ecl_lon": 182.383864,
+    "ecl_lat": 17.2227876,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 66.26929912795929
+  },
+  {
+   "name": "2004 VN112",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 342.0,
+    "e": 0.862,
+    "inc": 25.5,
+    "Omega": 66.0,
+    "varpi": 33.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "12",
+    "soln_date": "2024-12-14 06:57:16"
+   },
+   "detection": {
+    "first_obs": "2000-09-26",
+    "r_au": 47.92420483567,
+    "ecl_lon": 22.655063,
+    "ecl_lat": -18.1698909,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 14.720354017179648
+  },
+  {
+   "name": "2016 SD106",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 357.0,
+    "e": 0.881,
+    "inc": 4.81,
+    "Omega": 219.0,
+    "varpi": 22.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "3",
+    "soln_date": "2024-08-01 21:24:17"
+   },
+   "detection": {
+    "first_obs": "2013-09-08",
+    "r_au": 47.0671976071,
+    "ecl_lon": 345.7352556,
+    "ecl_lat": 3.8809791,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 37.622450891531635
+  },
+  {
+   "name": "2015 RX245",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 446.0,
+    "e": 0.898,
+    "inc": 12.1,
+    "Omega": 8.62,
+    "varpi": 73.72,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "4",
+    "soln_date": "2021-11-13 01:27:01"
+   },
+   "detection": {
+    "first_obs": "2015-06-23",
+    "r_au": 62.50548703332,
+    "ecl_lon": 8.8584261,
+    "ecl_lat": 0.0545316,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 64.86838183713452
+  },
+  {
+   "name": "2015 BP519",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 486.0,
+    "e": 0.927,
+    "inc": 54.1,
+    "Omega": 135.0,
+    "varpi": 123.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "14",
+    "soln_date": "2025-10-30 18:31:45"
+   },
+   "detection": {
+    "first_obs": "2014-02-10",
+    "r_au": 55.62442976033,
+    "ecl_lon": 48.1486748,
+    "ecl_lat": -54.0743024,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 75.69374231588175
+  },
+  {
+   "name": "2013 RA109",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 480.0,
+    "e": 0.904,
+    "inc": 12.4,
+    "Omega": 105.0,
+    "varpi": 8.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "7",
+    "soln_date": "2025-02-13 03:10:41"
+   },
+   "detection": {
+    "first_obs": "2013-09-12",
+    "r_au": 46.33812320372,
+    "ecl_lon": 17.6754641,
+    "ecl_lat": -12.384377,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 8.785302434248447
+  },
+  {
+   "name": "2003 VB12",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 544.0,
+    "e": 0.86,
+    "inc": 11.9,
+    "Omega": 145.0,
+    "varpi": 96.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "51",
+    "soln_date": "2026-06-06 14:12:24"
+   },
+   "detection": {
+    "first_obs": "1990-09-25",
+    "r_au": 94.18159647035,
+    "ecl_lon": 41.1514075,
+    "ecl_lat": -11.6197889,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 54.11564168147765
+  },
+  {
+   "name": "2021 DK18",
+   "membership": "SCT25+SCT26",
+   "elements": {
+    "a": 859.0,
+    "e": 0.948,
+    "inc": 15.4,
+    "Omega": 322.0,
+    "varpi": 196.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "4",
+    "soln_date": "2026-03-11 20:41:22"
+   },
+   "detection": {
+    "first_obs": "2020-02-26",
+    "r_au": 67.79936684748,
+    "ecl_lon": 124.4924539,
+    "ecl_lat": 4.8118051,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 72.60615694347153
+  },
+  {
+   "name": "2013 SY99",
+   "membership": "BB21+SCT25+SCT26",
+   "elements": {
+    "a": 813.0,
+    "e": 0.939,
+    "inc": 4.23,
+    "Omega": 29.5,
+    "varpi": 61.8,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "5",
+    "soln_date": "2026-06-15 09:46:34"
+   },
+   "detection": {
+    "first_obs": "2013-09-05",
+    "r_au": 60.88194716645,
+    "ecl_lon": 10.6396337,
+    "ecl_lat": -1.3688856,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 51.894801833384484
+  },
+  {
+   "name": "2017 OF201",
+   "membership": "SCT26 only",
+   "elements": {
+    "a": 824.0,
+    "e": 0.945,
+    "inc": 16.2,
+    "Omega": 329.0,
+    "varpi": 307.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "2",
+    "soln_date": "2025-07-03 00:00:08"
+   },
+   "detection": {
+    "first_obs": "2004-09-21",
+    "r_au": 77.4795364509,
+    "ecl_lon": 27.5221422,
+    "ecl_lat": 13.9789414,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 81.62220118077617
+  },
+  {
+   "name": "2021 RR205",
+   "membership": "SCT26 only",
+   "elements": {
+    "a": 949.0,
+    "e": 0.941,
+    "inc": 7.65,
+    "Omega": 108.0,
+    "varpi": 317.0,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "4",
+    "soln_date": "2026-06-15 09:53:12"
+   },
+   "detection": {
+    "first_obs": "2017-07-24",
+    "r_au": 59.40016703817,
+    "ecl_lon": 346.6680442,
+    "ecl_lat": -6.5158406,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 28.16219718803457
+  },
+  {
+   "name": "2023 KQ14",
+   "membership": "SCT26 only",
+   "elements": {
+    "a": 248.0,
+    "e": 0.734,
+    "inc": 11.0,
+    "Omega": 72.1,
+    "varpi": 271.1,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "4",
+    "soln_date": "2026-10-13 15:34:44"
+   },
+   "detection": {
+    "first_obs": "2005-04-11",
+    "r_au": 76.10535619974,
+    "ecl_lon": 224.4608403,
+    "ecl_lat": 5.1433536,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 46.73884382215777
+  },
+  {
+   "name": "2024 FX26",
+   "membership": "SCT26 only",
+   "elements": {
+    "a": 254.0,
+    "e": 0.839,
+    "inc": 15.7,
+    "Omega": 158.0,
+    "varpi": 192.5,
+    "source": "JPL SBDB heliocentric J2000 osculating",
+    "orbit_id": "2",
+    "soln_date": "2025-07-03 00:17:04"
+   },
+   "detection": {
+    "first_obs": "2013-04-01",
+    "r_au": 52.32954614835,
+    "ecl_lon": 135.1905859,
+    "ecl_lat": -6.2970365,
+    "source": "JPL Horizons heliocentric ecliptic J2000 at first observation in current orbit solution",
+    "retrieved": "2026-10-27"
+   },
+   "phi_deg": 58.6002169719522
+  }
+ ]
+}

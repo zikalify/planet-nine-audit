@@ -21,3 +21,30 @@ Not validated: new selection functions, real follow-up rankings, orbit predictio
 - No horizontal overflow at 320px and 390px viewport widths.
 - Desktop and full mobile screenshots inspected; text, controls, range bars, caveats, source links and source/demo separation checked.
 - Live GitHub Pages deployment is a separate check, not established by local rendering.
+
+
+## Live-map validation (27 October 2026, continued)
+
+- Epoch reproduction: all 100,000 rows; geocentric RA/Dec from published
+  elements vs the dataset's published RA/Dec: median 53 arcsec, p99 216
+  arcsec. Monte Carlo over the published element precision (two decimals)
+  gives median 55 arcsec, p99 214 arcsec: the residual is explained by input
+  rounding. Fixture rows in tests/fixtures/v3-epoch-check.csv are real
+  published rows; test tolerance 0.06 deg.
+- Independent n-body comparison: JPL Horizons geometric state vectors
+  (DE441, ICRF/J2000 ecliptic) for (90377) Sedna and 2013 SY99 at
+  2018-06-01 and 2026-10-27. Elements from the 2018 vectors propagated
+  two-body to 2026-10-27 differ from the Horizons n-body positions by 71
+  arcsec (Sedna) and 111 arcsec (2013 SY99), i.e. <=0.031 deg over 8.4 years.
+- Clustering anchors: all nine published cells of Siraj, Chyba & Tremaine
+  2026 Table 1 reproduced (3 methods x 3 samples, significance and
+  direction). Maximum deviation 0.05 sigma and 2 deg, attributed to
+  element-solution epoch and detection-date conventions (docs/method.md).
+  tests/test_clustering.py enforces +-0.15 sigma, +-3 deg.
+- Site math: node assertions reproduce real published rows, projection
+  geometry, and the galactic rotation (galactic centre at 266.4, -29.0).
+- Full suite: 31 Python tests + node assertions pass.
+
+Not validated: marginalized direction intervals; sensitivity to
+detection-epoch conventions; any new scientific claim. The map is a
+model-conditional visualization of published results, not a measurement.
