@@ -3,77 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Planet Nine: current evidence map</title>
-<link rel="stylesheet" href="site/style.css">
+<title>Planet Nine Audit</title>
+<meta name="description" content="An open computational research project testing the published evidence for Planet Nine, with daily plain-English posts.">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>Planet Nine: current evidence map</h1>
-  <p class="tagline">Where a published orbit model says an unseen planet could be <strong>tonight</strong>, minus what published telescope searches already ruled out &mdash; plus the current status of the evidence that started the hunt.</p>
-  <p class="mapnote"><a href="blog/index.html">Research diary</a> - daily plain-English log of this project's checks and findings.</p>
-  <p class="honesty"><strong>This is not a detection.</strong> No observed position of Planet Nine exists. The map shows potential locations under one published model (Brown &amp; Batygin 2021) propagated to <span id="asof">the current date</span> in your browser, combined with published search exclusions. It is model-conditional, not a measured probability.</p>
+<header class="sitehead">
+  <h1><a href="index.html">Planet Nine Audit</a></h1>
+  <p class="sub">An open research project testing the published evidence for a ninth planet - independently, in public, with real data only.</p>
+  <nav class="sitenav">
+    <a href="blog/index.html">Research diary</a>
+    <a href="map/index.html">Evidence map</a>
+    <a href="https://github.com/zikalify/planet-nine-audit">Code &amp; data</a>
+  </nav>
 </header>
-
 <main>
-<section class="mapwrap">
-  <div class="controls">
-    <label class="layer"><input type="checkbox" id="lyUnex" checked> Not excluded by published searches (live)</label>
-    <label class="layer"><input type="checkbox" id="lyExcl"> Excluded model region (ZTF/DES/PS1, as published)</label>
-    <label class="layer"><input type="checkbox" id="lyCand" checked> Published infrared candidates (unconfirmed)</label>
-    <label class="layer"><input type="checkbox" id="lyGal" checked> Galactic plane</label>
-    <span class="dateslider">Date: <input type="range" id="dateSlider" min="-730" max="730" value="0" step="1"> <span id="dateLabel"></span></span>
-  </div>
-  <canvas id="sky" width="1200" height="640" role="img" aria-label="Sky map of potential Planet Nine locations under the 2021 reference model"></canvas>
-  <p class="mapnote" id="mapStats"></p>
-  <div id="candDetail" class="canddetail" hidden></div>
-</section>
-
-<section id="read">
-  <h2>How to read this map</h2>
-  <ul>
-    <li><strong>Warm density:</strong> where the 21,740 model samples <em>not</em> flagged as detectable by the published ZTF, DES and Pan-STARRS searches would sit on the sky on the selected date. The samples come from the CaltechDATA v3 reference population (Brown &amp; Batygin 2021; elements at epoch 1 June 2018, checksum-verified), propagated here with two-body orbital mechanics validated against JPL Horizons (see validation notes in the repository).</li>
-    <li><strong>Cool overlay:</strong> the 78,260 model samples the published searches say they would have found. "Excluded" means excluded <em>within this 2021 model</em>, under each search team's own published assumptions.</li>
-    <li><strong>Markers:</strong> published far-infrared candidate positions (IRAS/AKARI). All are unconfirmed; each note gives the paper's own caveats.</li>
-    <li>The concentration you see is mostly the model's orbital geometry (perihelion direction and inclination family), <em>not</em> new evidence.</li>
+  <h2>Latest posts</h2>
+  <ul class="postlist">
+    <li>
+      <span class="date">27 October 2026</span>
+      <a class="title" href="blog/2026-10-27.html">Checking the 2026 clustering evidence, number by number</a>
+      <p class="desc">We rebuilt the statistics behind the 2026 reassessment and reproduce all nine of its published numbers; we tested whether four published infrared sightings fit the best-known model; and we corrected a stress test that did not show what it first seemed to.</p>
+    </li>
   </ul>
-  <h2>What this is not</h2>
-  <ul>
-    <li>Not a detection, and not a live telescope feed.</li>
-    <li>Not a 2026 posterior. No public post-2021 orbit ensemble was found in our review; the newest published result (May 2026) says the clustering evidence behind the model is weaker than previously reported and its direction spans about half the sky (see below).</li>
-    <li>Not a claim that the planet is in the densest pixel. The 2021 model's sky map is exactly what the 2026 reassessment calls too narrow.</li>
-  </ul>
-</section>
 
-<section id="evidence">
-  <h2>The dynamical evidence today (gravitational effect on other bodies)</h2>
-  <p>The original case for Planet Nine is the apparent clustering of distant TNO orbits. We independently implemented the conditional-likelihood method of Siraj, Chyba &amp; Tremaine (2026, ApJ 1003 76) and reconstructed their sample from published tables and JPL data. Our implementation reproduces every published value in their Table 1 (see validation column; tolerances &plusmn;0.15&sigma; / &plusmn;3&deg;):</p>
-  <table id="clTable">
-    <thead><tr><th>Method</th><th>Sample</th><th>N</th><th>Significance (ours)</th><th>Published</th><th>Direction &varpi; (ours)</th><th>Published</th></tr></thead>
-    <tbody></tbody>
-  </table>
-  <p class="caveat"><strong>Read this carefully:</strong> &varpi; is the longitude of perihelion of the TNO orbits. It is <em>not</em> the current sky position of any planet, and we do not draw it on the map as one. Under the May 2026 result, clustering evidence sits near 2&sigma; with the direction constrained to only about half the sky.</p>
-  <p id="tracker"></p>
-  <details><summary>Sample objects and sources (25)</summary><div id="sampleTable"></div></details>
-</section>
+  <h2>Papers</h2>
+  <p class="note">No project papers yet. A paper appears here when this project produces a finding that earns one - with sources, methods, results and limits, as a PDF. Daily posts continue meanwhile.</p>
 
-<section id="candidates">
-  <h2>Published candidates (all unconfirmed)</h2>
-  <div id="candList"></div>
-</section>
-
-<section id="sources">
-  <h2>Sources and provenance</h2>
-  <ul id="srcList">
-    <li>Reference population &amp; search flags: Brown, CaltechDATA v3, <a href="https://data.caltech.edu/records/8fjad-x7y61">data.caltech.edu/records/8fjad-x7y61</a> (record dated 2023; CSV MD5 verified at build; elements epoch 2018-06-01). Searches: <a href="https://arxiv.org/abs/2110.13117">ZTF</a>, <a href="https://arxiv.org/abs/2203.07642">DES</a>, <a href="https://arxiv.org/abs/2401.17977">PS1 (78% joint exclusion)</a>.</li>
-    <li>Clustering method &amp; anchors: <a href="https://iopscience.iop.org/article/10.3847/1538-4357/ae6586">Siraj, Chyba &amp; Tremaine 2026, ApJ 1003 76</a>; sample from <a href="https://arxiv.org/abs/2410.18170">Siraj et al. 2025, ApJ 978 139</a> Table 1 plus four objects named in the 2026 paper. Elements: <a href="https://ssd-api.jpl.nasa.gov/doc/sbdb.html">JPL SBDB</a>; detection geometry: <a href="https://ssd.jpl.nasa.gov/horizons/">JPL Horizons</a> (retrieved 2026-10-27).</li>
-    <li>Candidates: <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025 (IRAS/AKARI pair)</a>; <a href="https://arxiv.org/abs/2506.12854">AKARI far-infrared search 2025 (two candidates)</a>. Parallax-search null: <a href="https://arxiv.org/abs/2504.05473">arXiv:2504.05473</a> (~98 deg&sup2;, local limit, not shown as an exclusion layer).</li>
-    <li>Census tracker: <a href="https://www.minorplanetcenter.net/iau/MPCORB/Distant.txt">MPC Distant.txt</a> snapshot at build date.</li>
-    <li>Code, method, validation, and replication instructions: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>.</li>
-  </ul>
-  <p id="buildinfo" class="buildinfo"></p>
-</section>
+  <h2>What this project is</h2>
+  <p>This project independently re-checks the published Planet Nine evidence: the orbital-clustering statistics, the survey exclusions, and the unconfirmed infrared candidates. Everything runs on public data and public code, and every claim links to its source. Wrong turns and corrections stay in the public record.</p>
+  <p class="note">Nothing here is peer reviewed, and no observed position of Planet Nine exists. The <a href="map/index.html">evidence map</a> shows one published model's potential locations, not a detection. Analysis and writing are by this project.</p>
 </main>
-<script src="site/p9math.js"></script>
-<script src="site/app.js"></script>
+<footer class="sitefoot">
+  Planet Nine Audit - open computational research. Sources and reproducible code: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>
+</footer>
 </body>
 </html>

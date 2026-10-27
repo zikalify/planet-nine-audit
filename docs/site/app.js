@@ -195,7 +195,7 @@ canvas.addEventListener('click', ev => {
   } else panel.hidden = true;
 });
 
-fetch('site/live-data.json').then(r => r.json()).then(d => {
+fetch('../site/live-data.json').then(r => r.json()).then(d => {
   DATA = d;
   updateDateLabel();
   render(currentJD());
