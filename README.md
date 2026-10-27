@@ -59,3 +59,11 @@ A reproducible summary is included in `examples/caltech-v3-summary.json`; the 13
 For the selected overlapping archives, the narrow toy model has conditional coverage between 65.0% and 82.5%, but the broad toy model has 35.0% to 47.5%. The next-field ranking chooses the invented south field by its worst-model lower gain (15.75 percentage points versus 1.75 for north). Those numbers only illustrate how assumptions change a decision. They are not real sky coordinates, measured telescope efficiencies or a recommendation to observe a southern field.
 
 For large populations, the complete probability matrix grows with particles times searches. This first version loads it into memory and is intended for small research audits. Benchmark before adopting it at survey scale. It intentionally does not hide missing matrix entries behind a zero default.
+
+## Static website and GitHub Pages
+
+The self-contained interactive site is in `docs/index.html`. Open it locally to try the toy-model controls and the exact historical joint-flag explorer. It runs entirely in the browser with no accounts, uploads, tracking or network data fetches. The mathematical demo is intentionally separate from the historical dataset summary.
+
+Run the site arithmetic tests with `node tests/site.test.cjs`. Browser checks also exercised the controls, reset and JSON download, checked console errors, and verified no horizontal overflow at 320px and 390px widths.
+
+To publish on GitHub Pages: in this repo, Settings > Pages > Build and deployment > Source: Deploy from a branch > Branch: main > folder: /docs > Save. No custom workflow file or build dependencies are needed. GitHub may use its own Pages build process. The site URL is whatever GitHub shows after publishing; the repository alone does not prove the site is deployed.

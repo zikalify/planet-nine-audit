@@ -1,0 +1,34 @@
+{
+  "source": "https://data.caltech.edu/records/8fjad-x7y61",
+  "source_md5": "a38fa7579b4c9938b3deebecda55a845",
+  "source_sha256": "050b68182ecbf7fd76f280d8cc43c0683d207499aba1488a68092b834420a422",
+  "population_size": 100000,
+  "epoch_jd": 2458270.0,
+  "epoch_label": "1 June 2018; J2000 heliocentric osculating elements",
+  "interpretation": "Historical reference-model fraction flagged detectable, NOT a new survey exclusion or discovery probability.",
+  "counts": {
+    "ZTF": 56173,
+    "DES": 10187,
+    "PS1": 68745,
+    "any_search": 78260,
+    "none": 21740
+  },
+  "fractions": {
+    "ZTF": 0.56173,
+    "DES": 0.10187,
+    "PS1": 0.68745,
+    "any_search": 0.7826,
+    "none": 0.2174
+  },
+  "joint_flag_counts_ZTF_DES_PS1": {
+    "000": 21740,
+    "001": 17054,
+    "010": 3331,
+    "011": 1702,
+    "100": 5955,
+    "101": 45064,
+    "110": 229,
+    "111": 4925
+  },
+  "warning": "Published binary flags are used jointly exactly as supplied; independence is NOT assumed. This does not incorporate later searches or 2026 model revisions."
+}
