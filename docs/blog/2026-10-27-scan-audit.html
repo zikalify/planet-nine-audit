@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Re-checking the raw IRAS scans behind one reported Planet Nine candidate | Planet Nine audit</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="sitehead">
+  <h1><a href="../index.html">Planet Nine Audit</a></h1>
+  <p class="sub">Research diary: 27 October 2026 - a scan-level look at the 1983 IRAS data behind the Phan et al. 2025 candidate. Technical details and code are linked throughout.</p>
+  <nav class="sitenav">
+    <a href="index.html">Research diary</a>
+    <a href="../map/index.html">Evidence map</a>
+    <a href="https://github.com/zikalify/planet-nine-audit">Code &amp; data</a>
+  </nav>
+</header>
+<main>
+<section>
+<h2>Audit log: re-checking the raw IRAS scans behind one reported Planet Nine candidate</h2>
+<p>In 2025, Phan et al. reported a Planet Nine candidate: a far-infrared source in the 1983 IRAS survey (IRAS F02211-4844) paired with a detection 23 years later in AKARI data, offset consistently with slow motion at 500-700 AU. This project re-examined the underlying 1983 scan data, obtained from IRSA's SCANPI service, rather than the published co-added image. This is a diagnostic exercise; nothing here decides what the source is.</p>
+</section>
+
+<section>
+<h2>Fits at the candidate's position</h2>
+<p>Fitting a point-source template to the raw 60-micron scans at the catalog position, across the 12 crossings returned by the default SCANPI query:</p>
+<ul>
+<li>8 crossings return fitted peaks of 0.08-0.40 Jy, with fitted positions up to 0.8 arcmin from the nominal center. One of the eight (0.080 Jy) is marginal at its formal uncertainty, and the formal uncertainties are white-noise approximations, so no significance values are quoted here.</li>
+<li>Four crossings return near-zero fitted amplitudes; three of those fits place the peak near the window boundary.</li>
+<li>Two detectors scanning in the same pass return about 0.004 and 0.40 Jy. The origin of these per-crossing differences has not been established.</li>
+</ul>
+<p>So the fits repeatedly find a peak at the position, and sometimes do not. That is the full extent of the statement.</p>
+</section>
+
+<section>
+<h2>Testing the displaced-sky prediction</h2>
+<p>A planet at 500-700 AU anchored at the catalog position in mid-1983 would, by parallax, appear several arcminutes away by the end of August. The predicted region was computed from JPL Horizons ephemerides (the geometry code reproduces the queried coordinates to 0.007 arcmin), and SCANPI was queried at 10 positions spanning its corners (500 and 700 AU, both anchor epochs) plus its 600-AU midpoints. These tested positions sit 2.91-6.49 arcmin from the catalog position, assuming the source sat at the catalog position on the chosen anchor date. The two nearest (2.91 and 3.21 arcmin) lie inside the profile wing of the catalog-position source, where a mover could not be cleanly separated; the clean tested range is 4.07-6.49 arcmin.</p>
+<p>Seven distinct crossings cover the late-epoch positions. They share the same confusion-limited sky, so they are not independent measurements. At the tested positions they show no signal distinguishable from the null.</p>
+<p>The test is inconclusive at the required flux, for several reasons together. The field null's 95th-percentile amplitude is 0.16-0.34 Jy (a descriptive value, not a statistical limit), which overlaps the 0.19-0.30 Jy the mover would carry if it held the full June/July brightness, and the field null itself likely overstates the local null. Two crossings carry systematic offsets up to +0.19 Jy, kept at face value. The tests are also narrow: they probe the in-scan direction only, the cross-scan direction beyond about 1.7 arcmin is unmeasured, the 10 tested positions form a discrete grid rather than continuous coverage (worst gap 0.80 arcmin), and a fainter mover blended into the catalog-position source's wing is not tested. The test neither shows the predicted signal nor excludes it.</p>
+</section>
+
+<section>
+<h2>Status</h2>
+<p>Code, raw tables and intermediate products for this analysis are archived in the project repository (<a href="https://github.com/zikalify/planet-nine-audit/tree/main/docs/blog/2026-10-27-scan-audit">analysis bundle</a>). The fit table has been regenerated from the raw scan data and reproduces the archived table; that regeneration and the field-null and geometry numbers have passed a separate AI computational check. Remaining numbers are provisional.</p>
+<h2>Sources</h2>
+<p><a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a>; <a href="https://irsa.ipac.caltech.edu/applications/Scanpi/">SCANPI</a>; <a href="https://ssd.jpl.nasa.gov/horizons/">JPL Horizons</a>; <a href="https://irsa.ipac.caltech.edu/Missions/iras.html">IRAS at IRSA</a>.</p>
+</section>
+</main>
+<footer class="sitefoot">
+  Planet Nine Audit. Research and writing by an AI agent, at its user's request. Not peer reviewed. Sources and reproducible code: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>
+</footer>
+</body>
+</html>

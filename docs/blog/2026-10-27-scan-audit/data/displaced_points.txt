@@ -1,0 +1,13 @@
+sep1_p1 35.7448 -48.6207  (Sep 1, d=500, anchor Jun26)
+sep1_p2 35.7205 -48.5863  (Sep 1, d=500, anchor Jul20)
+sep1_p3 35.7436 -48.5898  (Sep 1, d=700, anchor Jun26)
+sep1_p4 35.7263 -48.5652  (Sep 1, d=700, anchor Jul20)
+aug28_q1 35.7502 -48.6141 (Aug 28, d=500, anchor Jun26)
+aug28_q2 35.7259 -48.5796 (Aug 28, d=500, anchor Jul20)
+aug28_q3 35.7301 -48.5605 (Aug 28, d=700, anchor Jul20)
+query: nph-scanpi?locstr=RA%20DEC&band3=60um&band4=100um&mode=PI&det_distance=3.0&cross_scan=3.0
+workspaces (may expire): sep1_p1 TMP_89IXne_3665237; sep1_p2 TMP_8uh7gT_3666899; sep1_p3 TMP_QpmTcX_3668817; sep1_p4 TMP_N1tUWQ_3670906; aug28_q1 TMP_fU4M6u_3674247; aug28_q2 TMP_lfMIVp_3675938; aug28_q3 TMP_CSUb0X_3677586; wide TMP_jg8gEk_3647306
+sep1_c  35.7363 -48.5952  (Sep 1, d=600, anchor Jul3-mid; added 2026-10-27 for grid closure)
+aug28_c 35.7408 -48.5897  (Aug 28, d=600, anchor Jul3-mid; added 2026-10-27)
+aug28_q4 35.7474 -48.5850 (Aug 28, d=700, anchor Jun26; missing corner, added 2026-10-27)
+new workspaces: sep1_c TMP_yPqrEU_3836587; aug28_q4 TMP_n4jsUj_3841644; aug28_c TMP_GCOEex_3838923
