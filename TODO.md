@@ -27,7 +27,7 @@ Maintained as work proceeds. Items are checked only when verified; dates are UTC
 - [x] Two-epoch candidate-vs-ensemble test, finite-sample calibrated (IRAS/AKARI pair: nearest sampled orbit 21 deg away at both epochs, far outside sampled support; FISSSDL: fringe-proximity only; see docs/research.md) — 2026-10-27
 - [ ] Parallax-search null field (arXiv:2504.05473) overlap check against candidate positions
 - [x] Exploratory MPChecker queries at the published candidate positions (7 queries on 2026-10-27; methods-and-limitations note in preparation) — 2026-10-27
-- [ ] Cross-match published candidates against the MPC known-object catalog at the actual observation times — blocked on exact UTC scan times (IRAS SCANPI scan list, AKARI scan times); sparse date snapshots are not a complete cross-match
+- [ ] Cross-match published candidates against the MPC known-object catalog at the actual observation times — exact UTC scan times obtained for 3 of 4 candidates (IRSA SCANPI; papers' own scan figures); exact UTC for FISSSDL J0301112 not in the paper (needs DARTS AKARI scan log). Queries at exact instants run for the three; methods/limitations note in preparation
 - [ ] Re-run the census/clustering tracker when Rubin publishes new distant TNOs with stability classifications
 - [ ] Calibrated survey selection functions (Sorcha-scale) — currently infeasible in this compute environment; would need to reproduce a published search's exclusions first
 - [ ] Independent scientific review — only if the owner authorizes outreach
