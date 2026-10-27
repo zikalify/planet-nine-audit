@@ -39,19 +39,19 @@
   <h2>What this is not</h2>
   <ul>
     <li>Not a detection, and not a live telescope feed.</li>
-    <li>Not a 2026 posterior. No public post-2021 orbit ensemble was found in our review; the newest published result (May 2026) says the clustering evidence behind the model is weaker than previously reported and its direction spans about half the sky (see below).</li>
+    <li>Not a 2026 posterior. No public post-2021 orbit ensemble was found in this project's review; the newest published result (May 2026) says the clustering evidence behind the model is weaker than previously reported and its direction is only weakly constrained (see below).</li>
     <li>Not a claim that the planet is in the densest pixel. The 2021 model's sky map is exactly what the 2026 reassessment calls too narrow.</li>
   </ul>
 </section>
 
 <section id="evidence">
   <h2>The dynamical evidence today (gravitational effect on other bodies)</h2>
-  <p>The original case for Planet Nine is the apparent clustering of distant TNO orbits. We independently implemented the conditional-likelihood method of Siraj, Chyba &amp; Tremaine (2026, ApJ 1003 76) and reconstructed their sample from published tables and JPL data. Our implementation reproduces every published value in their Table 1 (see validation column; tolerances &plusmn;0.15&sigma; / &plusmn;3&deg;):</p>
+  <p>The original case for Planet Nine is the apparent clustering of distant TNO orbits. This project independently implemented the conditional-likelihood method of Siraj, Chyba &amp; Tremaine (2026, ApJ 1003 76) and reconstructed their sample from published tables and JPL data. The implementation reproduces every published value in their Table 1 (see validation column; tolerances &plusmn;0.15&sigma; / &plusmn;3&deg;):</p>
   <table id="clTable">
     <thead><tr><th>Method</th><th>Sample</th><th>N</th><th>Significance (ours)</th><th>Published</th><th>Direction &varpi; (ours)</th><th>Published</th></tr></thead>
     <tbody></tbody>
   </table>
-  <p class="caveat"><strong>Read this carefully:</strong> &varpi; is the longitude of perihelion of the TNO orbits. It is <em>not</em> the current sky position of any planet, and we do not draw it on the map as one. Under the May 2026 result, clustering evidence sits near 2&sigma; with the direction constrained to only about half the sky.</p>
+  <p class="caveat"><strong>Read this carefully:</strong> &varpi; is the longitude of perihelion of the TNO orbits. It is <em>not</em> the current sky position of any planet, and it is not drawn on the map as one. Under the May 2026 result, clustering evidence sits near 2&sigma; and the fitted direction carries a wide uncertainty interval.</p>
   <p id="tracker"></p>
   <details><summary>Sample objects and sources (25)</summary><div id="sampleTable"></div></details>
 </section>

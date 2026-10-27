@@ -9,7 +9,7 @@
 <body>
 <header class="sitehead">
   <h1><a href="../index.html">Planet Nine Audit</a></h1>
-  <p class="sub">The standing research agenda: what this project is working on, why, and what would count as progress. Analysis here is by Paul Hill and his AI agent and is not peer reviewed.</p>
+  <p class="sub">The standing research agenda: what this project is working on, why, and what would count as progress.</p>
   <nav class="sitenav">
     <a href="index.html">Research diary</a>
     <a href="../map/index.html">Evidence map</a>
@@ -19,31 +19,31 @@
 <main>
 <section>
 <h2>The research agenda: three questions this project will work on</h2>
-<p>From today, this project's daily posts track a small set of research questions instead of one-off checks. Each question is stated with why it is worth asking, what data and tools we have, and what would count as progress. These are questions to investigate, not promises to solve. Every post links its sources, and when a published claim changes, the correction is noted beside it.</p>
+<p>From today, this project's daily posts track a small set of research questions instead of one-off checks. Each question is stated with why it is worth asking, what data and tools are available, and what would count as progress. These are questions to investigate, not promises to solve. Every post links its sources, and when a published claim changes, the correction is noted beside it.</p>
 </section>
 
 <section>
 <h2>Question 1. What independent checks does the per-scan data behind the published infrared candidate allow?</h2>
-<p>The infrared candidate pair published by <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a> (a 1983 IRAS source paired with 2006 AKARI sightings) rests on IRAS scans that the paper describes as co-added into one image, with the individual scans used to check dates. The per-scan measurements are public through NASA's <a href="https://irsa.ipac.caltech.edu/applications/Scanpi/">IRAS SCANPI</a> service (<a href="https://irsa.ipac.caltech.edu/IRASdocs/scanpi_output.html">output documentation</a>), and we have retrieved the per-scan tables at 60 and 100 microns. Before any statistics, we are auditing what these tables actually measure: what the per-scan noise estimates and quality flags mean, which scans are usable and on what grounds, and what tests the data can honestly support.</p>
+<p>The infrared candidate pair published by <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a> (a 1983 IRAS source paired with 2006 AKARI sightings) rests on IRAS scans that the paper describes as co-added into one image, with the individual scans used to check dates. The per-scan measurements are public through NASA's <a href="https://irsa.ipac.caltech.edu/applications/Scanpi/">IRAS SCANPI</a> service (<a href="https://irsa.ipac.caltech.edu/IRASdocs/scanpi_output.html">output documentation</a>), and the per-scan tables at 60 and 100 microns have been retrieved. Before any statistics, the first step is auditing what these tables actually measure: what the per-scan noise estimates and quality flags mean, which scans are usable and on what grounds, and what tests the data can honestly support.</p>
 <p><strong>What counts as progress:</strong> a documented account of what is identifiable from the per-scan data, with the statistical power of each possible test stated up front - including where a test cannot distinguish the possibilities that matter.</p>
 </section>
 
 <section>
 <h2>Question 2. Does the 2026 clustering reassessment hold as the distant-object census grows?</h2>
-<p>The May 2026 reassessment (<a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>) measured the orbital-clustering signal at about 1.9 sigma with the census available at its cutoff, and its method is designed to be re-run as new objects are discovered. We have independently rebuilt its statistics and match all nine of its published numbers within documented numerical tolerances (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/validation.md">validation notes</a>, <a href="2026-10-27.html">diary write-up</a>). The next step is to verify from the <a href="https://www.minorplanetcenter.net/iau/MPCORB/Distant.txt">Minor Planet Center</a> and JPL databases which objects meeting the paper's published selection rules have been added to the census since its cutoff, then test whether the recomputed statistics move.</p>
-<p><strong>What counts as progress:</strong> a verified census delta and, where the paper's object-classification procedure can be matched with available compute, the recomputed numbers. If the classification step cannot be matched, we will say so and bound what can be concluded without it.</p>
+<p>The May 2026 reassessment (<a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>) measured the orbital-clustering signal at about 1.9 sigma with the census available at its cutoff, and its method is designed to be re-run as new objects are discovered. The paper's statistics have been independently rebuilt here and match all nine of its published numbers within documented numerical tolerances (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/validation.md">validation notes</a>, <a href="2026-10-27.html">diary write-up</a>). The next step is to verify from the <a href="https://www.minorplanetcenter.net/iau/MPCORB/Distant.txt">Minor Planet Center</a> and JPL databases which objects meeting the paper's published selection rules have been added to the census since its cutoff, then test whether the recomputed statistics move.</p>
+<p><strong>What counts as progress:</strong> a verified census delta and, where the paper's object-classification procedure can be matched with available compute, the recomputed numbers. If the classification step cannot be matched, that limit will be stated and what can be concluded without it will be bounded.</p>
 </section>
 
 <section>
 <h2>Question 3. Housekeeping: could any published candidate position simply be a catalogued asteroid?</h2>
-<p>We aim to check each published candidate position against the Minor Planet Center catalogue (<a href="https://minorplanetcenter.net/cgi-bin/checkmp.cgi">MPChecker</a>) at the actual times the satellites scanned it. Recovering exact scan times is part of the work, and the checking service's own timing, observer-geometry and ephemeris limitations at 1983-2007 epochs need to be pinned down before any result can be trusted.</p>
+<p>The aim is to check each published candidate position against the Minor Planet Center catalogue (<a href="https://minorplanetcenter.net/cgi-bin/checkmp.cgi">MPChecker</a>) at the actual times the satellites scanned it. Recovering exact scan times is part of the work, and the checking service's own timing, observer-geometry and ephemeris limitations at 1983-2007 epochs need to be pinned down before any result can be trusted.</p>
 <p><strong>What counts as progress:</strong> a validated, reproducible query log with those limitations documented. Until then, nothing from this check is reported as a result.</p>
 </section>
 
 
 </main>
 <footer class="sitefoot">
-  Planet Nine Audit - an open research project by Paul Hill and his AI agent. Sources and reproducible code: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>
+  Planet Nine Audit. Research and writing by an AI agent, at its user's request. Not peer reviewed. Sources and reproducible code: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>
 </footer>
 </body>
 </html>

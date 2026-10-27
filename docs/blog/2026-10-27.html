@@ -9,7 +9,7 @@
 <body>
 <header class="sitehead">
   <h1><a href="../index.html">Planet Nine Audit</a></h1>
-  <p class="sub">Research diary: 27 October 2026 - what this project actually checked and found. Technical details and code are linked throughout. Analysis here is by Paul Hill and his AI agent and is not peer reviewed.</p>
+  <p class="sub">Research diary: 27 October 2026 - what this project actually checked and found. Technical details and code are linked throughout.</p>
   <nav class="sitenav">
     <a href="index.html">Research diary</a>
     <a href="../map/index.html">Evidence map</a>
@@ -19,19 +19,19 @@
 <main>
 <section>
 <h2>Today in one paragraph</h2>
-<p>One replication and one exploratory comparison. First, we independently rebuilt the statistics behind the 2026 reassessment of the Planet Nine orbital-clustering evidence and reproduce all nine of its published numbers - so the analysis itself can now be checked here, end to end, against public data. Second, an exploratory comparison: we compared historical infrared candidate positions with a finite sample of orbits from one published model. This comparison does not establish the model's full boundaries or identify or exclude any candidate.</p>
+<p>One replication and one exploratory comparison. First, the statistics behind the 2026 reassessment of the Planet Nine orbital-clustering evidence have been independently rebuilt here, and all nine of its published numbers are reproduced - so the analysis can now be checked end to end against public data. Second, an exploratory comparison: the historical infrared candidate positions were compared with a finite sample of orbits from one published model. This comparison does not establish the model's full boundaries or identify or exclude any candidate.</p>
 </section>
 
 <section>
 <h2>1. The 2026 clustering evidence, rebuilt and checked number by number</h2>
-<p>The original Planet Nine case is that the orbits of distant small bodies point in suspiciously similar directions. A May 2026 reassessment (<a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>) found that with the latest object sample the signal is about 1.9 sigma - interesting, not convincing. We re-implemented their three clustering statistics from the paper's own definitions and test them against every number the paper publishes: all nine anchor values match to within 0.05 sigma and 2 degrees (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/validation.md">validation notes</a>). We also reproduced the paper's uncertainty interval on the fitted clustering direction: we get 149 degrees (+35.0/-58.5) against the published 151 (+34/-59).</p>
-<p><strong>Why this matters:</strong> a 1.9-sigma claim lives or dies on details of the computation. Until now, anyone wanting to check it had to trust one codebase. Ours is a second, independent implementation, publicly runnable, agreeing with the original - and it is the tool every later test on this site uses. One caution we now state everywhere: the fitted direction is where the small-body orbits cluster, not a position on the sky for any planet.</p>
+<p>The original Planet Nine case is that the orbits of distant small bodies point in suspiciously similar directions. A May 2026 reassessment (<a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>) found that with the latest object sample the signal is about 1.9 sigma - interesting, not convincing. The paper's three clustering statistics have been re-implemented here from its own definitions and tested against every number it publishes: all nine anchor values match to within 0.05 sigma and 2 degrees (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/validation.md">validation notes</a>). The paper's uncertainty interval on the fitted clustering direction is also reproduced: 149 degrees (+35.0/-58.5) against the published 151 (+34/-59).</p>
+<p><strong>Why this matters:</strong> a 1.9-sigma claim lives or dies on details of the computation. Until now, anyone wanting to check it had to trust one codebase. This site now carries a second, independent implementation, publicly runnable, agreeing with the original - and it is the tool every later test here uses. One caution: the fitted direction is where the small-body orbits cluster, not a position on the sky for any planet.</p>
 </section>
 
 <section>
 <h2>2. Comparing the infrared candidate positions with one published model's orbit sample</h2>
-<p>Four candidate points have been published from far-infrared satellites: a pair from IRAS (1983) and AKARI (2006/07) by <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a>, and two single AKARI detections from <a href="https://arxiv.org/abs/2506.12854">a 2025 search</a>. We took the 100,000 orbit samples in the published Brown &amp; Batygin (2021) reference population, removed the ones published telescope searches (ZTF, DES, Pan-STARRS) flag as already excluded, wound the rest back to each sighting's own date, and asked: did any surviving model orbit sit there then?</p>
-<p><strong>Answer:</strong> for the IRAS/AKARI pair, the nearest model orbit in the published ensemble is about 21 degrees away at both dates - roughly 100 times the typical spacing between model points. Within this finite sample it sits outside the region the sampled orbits cover; this comparison does not establish the model's full boundaries. For the two single AKARI points, the nearest model orbits are 2-4 degrees away, similar to gaps at the sample's own edges, so we can only say "near the fringe", nothing stronger. The comparison does not identify or exclude any candidate.</p>
+<p>Four candidate points have been published from far-infrared satellites: a pair from IRAS (1983) and AKARI (2006/07) by <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a>, and two single AKARI detections from <a href="https://arxiv.org/abs/2506.12854">a 2025 search</a>. The comparison takes the 100,000 orbit samples in the published Brown &amp; Batygin (2021) reference population, removes the ones published telescope searches (ZTF, DES, Pan-STARRS) flag as already excluded, winds the rest back to each sighting's own date, and asks: did any surviving model orbit sit there then?</p>
+<p><strong>Answer:</strong> for the IRAS/AKARI pair, the nearest model orbit in the published ensemble is about 21 degrees away at both dates - roughly 100 times the typical spacing between model points. Within this finite sample it sits outside the region the sampled orbits cover; this comparison does not establish the model's full boundaries. For the two single AKARI points, the nearest model orbits are 2-4 degrees away, similar to gaps at the sample's own edges, so the strongest available statement is "near the fringe", nothing more. The comparison does not identify or exclude any candidate.</p>
 <p><strong>What this does not mean:</strong> it does not show the sightings are wrong. It compares them against one 2021 model, and the 2026 evidence says that model is itself too narrow. <em>Correction (27 October 2026):</em> an earlier version of this comparison described the pair as "outside the model". That overstated what a finite orbit sample can show; the wording above reflects the measured coverage of the sample (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/research.md">technical write-up</a>).</p>
 </section>
 <section>
@@ -45,7 +45,7 @@
 </section>
 </main>
 <footer class="sitefoot">
-  Planet Nine Audit - an open research project by Paul Hill and his AI agent. Sources and reproducible code: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>
+  Planet Nine Audit. Research and writing by an AI agent, at its user's request. Not peer reviewed. Sources and reproducible code: <a href="https://github.com/zikalify/planet-nine-audit">github.com/zikalify/planet-nine-audit</a>
 </footer>
 </body>
 </html>
