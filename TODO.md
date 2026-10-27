@@ -24,7 +24,8 @@ Maintained as work proceeds. Items are checked only when verified; dates are UTC
 ## Open research leads (not started or not validated)
 - [ ] Sensitivity of clustering results to detection-epoch and barycentric/heliocentric conventions
 - [ ] Marginalized direction uncertainties matching the paper's 151°(+34/−59) (we report ML direction; intervals not yet reproduced)
-- [ ] Check whether the IRAS/AKARI candidate pair is consistent with the unexcluded model region and with the parallax-search null field (arXiv:2504.05473)
+- [x] Two-epoch consistency test: candidates vs BB21 ensemble at observation epochs (pair ~21 deg outside model region; FISSSDL 1.3-4.4 deg from band edge; see docs/research.md) — 2026-10-27
+- [ ] Parallax-search null field (arXiv:2504.05473) overlap check against candidate positions
 - [ ] Cross-match published candidates against the current MPC known-object catalog with documented method
 - [ ] Re-run the census/clustering tracker when Rubin publishes new distant TNOs with stability classifications
 - [ ] Calibrated survey selection functions (Sorcha-scale) — currently infeasible in this compute environment; would need to reproduce a published search's exclusions first

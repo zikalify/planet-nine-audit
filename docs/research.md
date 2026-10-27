@@ -94,3 +94,24 @@ The complete published v3 CSV was downloaded, its MD5 matched the record's `a38f
 
 No public post-2021 Planet Nine orbit ensemble was found in this review; the
 claim is bounded to sources checked here, not a universal negative.
+
+## Cross-evidence test 2026-10-27: published IR candidates vs the BB21 ensemble at their observation epochs
+
+Question (user-asked): do the published far-infrared candidate positions survive comparison against the published Planet Nine model ensemble, evaluated at the candidates' own observation epochs?
+
+Method: propagated all 100,000 CaltechDATA v3 reference samples (epoch 2018-06-01) back to each candidate's observation epoch with the repo's validated two-body propagator, then computed the minimum angular separation from each candidate position to (a) the 21,740 samples not flagged by published ZTF/DES/PS1 searches and (b) the 78,260 flagged samples. For the Phan et al. (2025) IRAS/AKARI pair we additionally computed the best JOINT match: the single sample minimizing the RSS of its 1983 and 2006/07 separations (a two-epoch linkage test).
+
+Results:
+| Candidate | Epoch used | Min sep to unexcluded | Min sep to excluded |
+|---|---|---|---|
+| IRAS F02211-4844 | 1983-07-15 | 21.3 deg | 15.4 deg |
+| AKARI-MUSL J0220440-491247 | 2007-01-01 | 21.7 deg | 16.3 deg |
+| IRAS+AKARI best single-sample joint | both | RSS 30.4 deg (21.3 + 21.7) | RSS 22.5 deg |
+| FISSSDL J0250422-150114 | 2007-07-28 | 2.1 deg | 1.3 deg |
+| FISSSDL J0301112-164240 | 2006-07-30 | 4.4 deg | 1.3 deg |
+
+Reading: the Phan et al. IRAS/AKARI pair lies ~21 deg outside the entire BB21 model sky region at both epochs; no ensemble sample, excluded or not, comes near either position. Under the BB21 orbit family specifically, the pair is not a model-consistent Planet Nine. Phan et al. selected the pair by separation (42-69.6 arcmin, implying 500-700 AU) and did not publish a comparison against the BB21 sky region, so this quantification appears new, though the direction of the conclusion matches the paper's own caution. The two FISSSDL (AKARI 2025) positions sit 1.3-4.4 deg from the model band edge, geometrically consistent with the BB21 family at this coarse level - consistency, not support.
+
+Limits: (1) tests consistency with ONE published model; BB21 is not the 2026 evidence state (SCT26 weakens clustering to ~1.9 sigma over about half the sky, and no newer public ensemble was found in our review), so "inconsistent with BB21" is not "not Planet Nine". (2) Two-body propagation 35 years back from 2018: measured drift vs JPL n-body over 8.4 years is 71-111 arcsec; even linearly extrapolated (~0.1-0.3 deg) it is negligible against a 21 deg margin. (3) Candidate positional uncertainties (arcmin scale) and the IRAS 3-month observation window are likewise negligible. (4) The IRAS/AKARI linkage itself is unconfirmed by its authors. (5) Reproducibility: script and exact epochs are in tests/fixtures/ and this repo's history; inputs are the published CSV (MD5-verified) and published candidate coordinates.
+
+Next cross-evidence test identified: cross-match the candidate positions/epochs against the known moving-object catalog (MPC MPChecker). Scripted CGI access is explicitly unsupported by MPC and JPL exposes no position-at-epoch identification API here, so this needs the browser-driven form; queued in TODO.md.

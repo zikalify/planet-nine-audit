@@ -21,7 +21,9 @@ function drawCurve(eqFn, w, h, style, dash) {
 }
 
 function drawGrid(w, h) {
-  ctx.strokeStyle = '#2a3550'; ctx.lineWidth = 0.6; ctx.fillStyle = '#7a87a8'; ctx.font = '11px system-ui';
+  const ui = Math.max(1, 900 / (canvas.getBoundingClientRect().width || w));
+  ctx.font = Math.round(11 * ui) + 'px system-ui';
+  ctx.strokeStyle = '#2a3550'; ctx.lineWidth = 0.6; ctx.fillStyle = '#7a87a8';
   for (let ra = 0; ra < 360; ra += 30) {
     ctx.beginPath();
     for (let dec = -89; dec <= 89; dec += 2) {
@@ -46,6 +48,7 @@ function drawGrid(w, h) {
 
 function render(jd) {
   const w = canvas.width, h = canvas.height;
+  const ui = Math.max(1, 900 / (canvas.getBoundingClientRect().width || w));
   ctx.clearRect(0, 0, w, h);
   ctx.fillStyle = '#0d1220'; ctx.fillRect(0, 0, w, h);
   drawGrid(w, h);
@@ -93,21 +96,22 @@ function render(jd) {
     const labels = [];
     DATA.candidates.forEach((c, idx) => {
       const [x, y] = project(c.ra, c.dec, w, h);
+      const m = 7 * ui;
       ctx.fillStyle = '#ffd34d'; ctx.strokeStyle = '#7a5c00'; ctx.lineWidth = 1;
       ctx.beginPath();
-      ctx.moveTo(x, y - 7); ctx.lineTo(x + 6, y); ctx.lineTo(x, y + 7); ctx.lineTo(x - 6, y); ctx.closePath();
+      ctx.moveTo(x, y - m); ctx.lineTo(x + m * 0.85, y); ctx.lineTo(x, y + m); ctx.lineTo(x - m * 0.85, y); ctx.closePath();
       ctx.fill(); ctx.stroke();
-      ctx.fillStyle = '#ffd34d'; ctx.font = '10px system-ui';
-      const name = c.name.split(' (')[0];
+      ctx.fillStyle = '#ffd34d'; ctx.font = Math.round(10 * ui) + 'px system-ui';
+      const name = c.name.split(' (')[0] + ' · ' + String(c.epoch).slice(0, 4);
       const lw = ctx.measureText(name).width;
-      let ly = y + 3;
-      while (labels.some(L => Math.abs(L.x - (x + 8)) < (L.w + lw) / 2 + 6 && Math.abs(L.y - ly) < 12)) ly += 13;
-      if (ly !== y + 3) {
+      let ly = y + 3 * ui;
+      while (labels.some(L => Math.abs(L.x - (x + 8 * ui)) < (L.w + lw) / 2 + 6 * ui && Math.abs(L.y - ly) < 12 * ui)) ly += 13 * ui;
+      if (ly !== y + 3 * ui) {
         ctx.strokeStyle = 'rgba(255,211,77,0.5)';
-        ctx.beginPath(); ctx.moveTo(x + 4, y + 4); ctx.lineTo(x + 8, ly - 3); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(x + 4 * ui, y + 4 * ui); ctx.lineTo(x + 8 * ui, ly - 3 * ui); ctx.stroke();
       }
-      ctx.fillText(name, x + 8, ly);
-      labels.push({ x: x + 8 + lw / 2, y: ly, w: lw });
+      ctx.fillText(name, x + 8 * ui, ly);
+      labels.push({ x: x + 8 * ui + lw / 2, y: ly, w: lw });
       c._px = [x, y]; c._idx = idx;
     });
   }
@@ -177,7 +181,7 @@ canvas.addEventListener('click', ev => {
   const rect = canvas.getBoundingClientRect();
   const x = (ev.clientX - rect.left) * (canvas.width / rect.width);
   const y = (ev.clientY - rect.top) * (canvas.height / rect.height);
-  let best = null, bd = 18;
+  let best = null, bd = Math.max(18, 18 * (canvas.width / rect.width));
   DATA.candidates.forEach(c => {
     if (!c._px) return;
     const d = Math.hypot(c._px[0] - x, c._px[1] - y);
