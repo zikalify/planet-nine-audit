@@ -23,7 +23,7 @@ Maintained as work proceeds. Items are checked only when verified; dates are UTC
 
 ## Open research leads (not started or not validated)
 - [x] Numerical sensitivity of CL statistic to detection-geometry inputs: ~0.05 sigma per degree of along-track displacement (median probe 10.7 deg -> ~0.5 sigma); synthetic inputs, NOT alternative analyses; frame effect ~0.007 deg negligible (docs/research.md) — 2026-10-27
-- [ ] Marginalized direction uncertainties matching the paper's 151°(+34/−59) (we report ML direction; intervals not yet reproduced)
+- [x] Profiled 1-sigma direction interval via the paper's Sec VI method: ours 149 deg (+35.0/-58.5) vs published 151 (+34/-59) — 2026-10-27
 - [x] Two-epoch candidate-vs-ensemble test, finite-sample calibrated (IRAS/AKARI pair: nearest sampled orbit 21 deg away at both epochs, far outside sampled support; FISSSDL: fringe-proximity only; see docs/research.md) — 2026-10-27
 - [ ] Parallax-search null field (arXiv:2504.05473) overlap check against candidate positions
 - [ ] Cross-match published candidates against the current MPC known-object catalog with documented method

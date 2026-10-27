@@ -46,3 +46,14 @@ class AnchorReproductionTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ProfileIntervalTest(unittest.TestCase):
+    def test_sct26_3d_interval_matches_published(self):
+        sample = clustering.load_sample(SAMPLE)
+        subsets = clustering.sample_subsets(sample)
+        r = clustering.profile3d_direction(subsets["SCT26"])
+        # Published SCT26 Table 1: 151 deg (+34/-59); tolerances match anchor policy
+        self.assertAlmostEqual(r["ml_lon"], 151.0, delta=3.0)
+        self.assertAlmostEqual(r["plus_deg"], 34.0, delta=3.0)
+        self.assertAlmostEqual(r["minus_deg"], 59.0, delta=3.0)

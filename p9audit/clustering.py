@@ -98,7 +98,7 @@ def cl2d(sample):
             "delta_logL": float(dll)}
 
 
-def cl3d(sample):
+def _cl3d_logL(sample):
     eobs, epm = [], []
     for o in sample:
         el, det = o["elements"], o["detection"]
@@ -157,7 +157,46 @@ def cl3d(sample):
     lat = math.degrees(math.asin(float(np.clip(k0[2], -1, 1))))
     return {"Z": float(math.sqrt(max(0.0, 2 * dll))),
             "direction_deg": float(lon), "direction_lat_deg": float(lat),
-            "kappa": float(kap), "delta_logL": float(dll)}
+            "kappa": float(kap), "delta_logL": float(dll),
+            "logL_max": float(v), "_logL_fn": logL, "_n": n}
+
+
+def cl3d(sample):
+    return _cl3d_logL(sample)
+
+
+def profile3d_direction(sample, lon_step=0.5, lat_step=1.0, kap_max=8.0, kap_step=0.05):
+    """Profile the 3D conditional log-likelihood over ecliptic longitude of the
+    preferred direction, maximizing over latitude and kappa (SCT26 Sec. VI).
+    Returns the ML longitude and the 1-sigma envelope (delta logL = 0.5)."""
+    r = _cl3d_logL(sample)
+    logL = r["_logL_fn"]
+    lons = np.arange(0.0, 360.0, lon_step)
+    lats = np.radians(np.arange(-90.0, 90.0 + 1e-9, lat_step))
+    lr = np.radians(lons)
+    K = np.stack([np.cos(lats)[None, :] * np.cos(lr)[:, None],
+                  np.cos(lats)[None, :] * np.sin(lr)[:, None],
+                  np.broadcast_to(np.sin(lats)[None, :], (len(lons), len(lats)))], axis=2)
+    Kf = K.reshape(-1, 3)
+    prof = np.full(len(lons), -np.inf)
+    gmax = -np.inf
+    for kap in np.arange(0.0, kap_max + 1e-9, kap_step):
+        v = logL(Kf, kap).reshape(len(lons), len(lats))
+        prof = np.maximum(prof, v.max(axis=1))
+        gmax = max(gmax, float(v.max()))
+    gmax = max(gmax, r["logL_max"])
+    ml_lon = float(lons[int(prof.argmax())])
+    thr = gmax - 0.5
+    above = prof >= thr
+    i0 = int(prof.argmax())
+    lo, hi = i0, i0
+    while above[(lo - 1) % len(lons)] and (i0 - lo) < len(lons): lo -= 1
+    while above[(hi + 1) % len(lons)] and (hi - i0) < len(lons): hi += 1
+    minus = (i0 - lo) * lon_step
+    plus = (hi - i0) * lon_step
+    return {"ml_lon": ml_lon, "plus_deg": float(plus), "minus_deg": float(minus),
+            "global_logL_max": float(gmax), "threshold": float(thr),
+            "refined_ml_lon": r["direction_deg"]}
 
 
 def run_all(sample_path):
