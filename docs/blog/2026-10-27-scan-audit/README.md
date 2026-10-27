@@ -1,3 +1,19 @@
+# WITHDRAWN - fitting-method flaw (27 October 2026)
+
+**The pipeline in this directory contains a fitting-method flaw: the scan-fit objective
+(scipy-free matched-filter chi-squared in response_lib.refit, used by c1_fits.py and the
+sensitivity/coverage scripts) compares chi-squared sums evaluated over different subsets
+of each scan profile for different candidate positions, which biases the fits toward
+zero-amplitude solutions at the window edge. All fit-based numerical outputs in this
+bundle (work/*.json, per_scan_audit_table.csv amplitudes and uncertainties, and every
+number derived from them) are INVALIDATED and must not be used or cited. The raw SCANPI
+products (profiles/, wide/, disp/) are unaffected and remain valid archival data.**
+
+The analysis is being rerun with a corrected fitter and will be republished only after an
+independent review of the corrected method. This bundle is retained for provenance.
+
+---
+
 # Scan-level audit of IRAS F02211-4844 (Phan et al. 2025 candidate)
 
 Research bundle accompanying the 27 October 2026 research-diary post
