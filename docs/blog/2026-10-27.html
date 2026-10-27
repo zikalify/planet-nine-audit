@@ -19,7 +19,7 @@
 <main>
 <section>
 <h2>Today in one paragraph</h2>
-<p>One replication and one exploratory comparison. First, the statistics behind the 2026 reassessment of the Planet Nine orbital-clustering evidence have been independently rebuilt here, and all nine of its published numbers are reproduced - so the analysis can now be checked end to end against public data. Second, an exploratory comparison: the historical infrared candidate positions were compared with a finite sample of orbits from one published model. This comparison does not establish the model's full boundaries or identify or exclude any candidate.</p>
+<p>One replication and one exploratory comparison. First, the statistics behind the 2026 reassessment of the Planet Nine orbital-clustering evidence have been independently rebuilt here, and the implementation matches all nine published numbers within documented numerical tolerances. Second, an exploratory comparison: the historical infrared candidate positions were compared with a finite sample of orbits from one published model. This comparison does not establish the model's full boundaries or identify or exclude any candidate.</p>
 </section>
 
 <section>
@@ -34,12 +34,10 @@
 <p><strong>Answer:</strong> for the IRAS/AKARI pair, the nearest model orbit in the published ensemble is about 21 degrees away at both dates - roughly 100 times the typical spacing between model points. Within this finite sample it sits outside the region the sampled orbits cover; this comparison does not establish the model's full boundaries. For the two single AKARI points, the nearest model orbits are 2-4 degrees away, similar to gaps at the sample's own edges, so the strongest available statement is "near the fringe", nothing more. The comparison does not identify or exclude any candidate.</p>
 <p><strong>What this does not mean:</strong> it does not show the sightings are wrong. It compares them against one 2021 model, and the 2026 evidence says that model is itself too narrow. <em>Correction (27 October 2026):</em> an earlier version of this comparison described the pair as "outside the model". That overstated what a finite orbit sample can show; the wording above reflects the measured coverage of the sample (<a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/research.md">technical write-up</a>).</p>
 </section>
-<section>
-<h2>3. Correction: a stress-test comparison that was not a valid test</h2>
-<p><em>Correction (27 October 2026):</em> an earlier version of today's diary reported that shifting each small body's input position along its orbit (a median shift of about 11 degrees) moved the headline clustering statistic from 1.9 to 1.4 sigma and the fitted direction from 150 to 178 degrees, framed as a stress test of the 2026 result. The shifted positions are synthetic inputs that no telescope observed, and the paper's method is built around real detection geometry, so the shifted numbers are not an alternative measurement and neither weaken nor strengthen the published 1.9 sigma. The numbers are retained in the <a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/research.md">research notes</a> as a record of what changed and why.</p>
-</section>
+
 
 <section>
+<p class="note"><em>Correction (27 October 2026):</em> an earlier synthetic-position comparison was not a valid test of the published clustering result and has been withdrawn. Details: <a href="https://github.com/zikalify/planet-nine-audit/blob/main/docs/research.md">research notes</a>.</p>
 <h2>Sources</h2>
 <p><a href="https://arxiv.org/abs/2604.25990">Siraj, Chyba &amp; Tremaine 2026</a>; <a href="https://arxiv.org/abs/2410.18170">Siraj et al. 2025</a>; <a href="https://arxiv.org/abs/2504.17288">Phan et al. 2025</a>; <a href="https://arxiv.org/abs/2506.12854">AKARI far-infrared search 2025</a>; <a href="https://data.caltech.edu/records/8fjad-x7y61">Brown &amp; Batygin 2021 reference population</a>; <a href="https://www.minorplanetcenter.net/iau/MPCORB/Distant.txt">MPC distant objects</a>; JPL SBDB/Horizons.</p>
 </section>
