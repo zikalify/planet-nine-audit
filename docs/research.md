@@ -122,14 +122,16 @@ Limits: (1) one published model only; BB21 is not the 2026 evidence state (SCT26
 
 Next cross-evidence test identified: cross-match the candidate positions/epochs against the known moving-object catalog (MPC MPChecker). Scripted CGI access is explicitly unsupported by MPC and JPL exposes no position-at-epoch identification API here, so this needs the browser-driven form; queued in TODO.md.
 
-## Robustness test 2026-10-27: sensitivity of the clustering statistics to detection-epoch and frame conventions
+## Numerical sensitivity check 2026-10-27: CL statistic vs detection-geometry inputs
 
-Question: how much do the SCT26 conditional-likelihood results move under defensible alternative conventions for WHERE each object is placed at "detection"?
+Question: how much does the SCT26 conditional-likelihood statistic change when its detection-geometry inputs are perturbed along each object's orbit?
 
-Method: for all 25 sample objects we fetched full-precision JPL SBDB orbit solutions (data/sct26-elements-full.json, retrieved 2026-10-27, with first_obs/last_obs arc dates) and rebuilt the detection geometry under three epoch conventions - first observation (the convention matching the paper baseline), observation-arc midpoint, and last observation - propagating heliocentric positions with the repo's validated two-body propagator. Sanity: propagated vs Horizons geometry at first_obs agrees to median 63", max 218" (element-rounding and n-body drift scale, per docs/validation.md). Frame check: heliocentric vs barycentric placement is bounded by the Sun-SSB offset, verified via Horizons at 0.0049 AU on 2007-07-15; worst-case angular effect at q=40 AU is ~0.007 deg - negligible, not pursued further.
+Scope audit (done before interpretation): the paper's method conditions on the MEASURED (lambda, r, a, e) at detection - the position where a survey actually detected each object (arXiv:2604.25990, Sec. II-III). Only the discovery-era geometry corresponds to a real detection process under that definition. Arc-midpoint and last-observation positions are synthetic inputs: no survey detected these objects there. The variants below are therefore numerical sensitivity probes, NOT validated alternative analyses, and their shifted values say nothing direct about the correctness of the published 1.9 sigma, which used the appropriate inputs.
 
-Results (significance Z / direction, vs published anchors):
-| Sample | Method | first_obs (baseline) | arc midpoint | last_obs | Published |
+Method: for all 25 sample objects we fetched full-precision JPL SBDB orbit solutions (data/sct26-elements-full.json, retrieved 2026-10-27, with first_obs/last_obs arc dates) and rebuilt detection geometry under three input choices - first observation (baseline, matching the paper), arc midpoint, last observation - using the repo's two-body propagator. Sanity: propagated vs Horizons geometry at first_obs agrees to median 63", max 218" (rounding/drift scale, docs/validation.md). Median observation-arc length is 11.6 yr (max 35.4 yr); the input perturbation itself is large: median 10.7 deg, max 38.6 deg of along-track motion between first and last observation. Frame check: heliocentric vs barycentric placement is bounded by the Sun-SSB offset, verified via Horizons at 0.0049 AU on 2007-07-15; worst-case angular effect ~0.007 deg - negligible.
+
+Results (significance Z / direction; midpoint and last-obs columns are synthetic-input probes only):
+| Sample | Method | first_obs (baseline) | arc midpoint* | last_obs* | Published |
 |---|---|---|---|---|---|
 | BB21 | Simple | 2.52/58 | 2.52/58 | 2.52/58 | 2.5/58 |
 | SCT25 | Simple | 2.78/67 | 2.78/67 | 2.78/67 | 2.8/67 |
@@ -141,6 +143,6 @@ Results (significance Z / direction, vs published anchors):
 | SCT25 | 3D CL | 2.74/125 | 2.40/134 | 2.01/140 | 2.7/125 |
 | SCT26 | 3D CL | 1.92/150 | 1.70/165 | 1.43/178 | 1.9/151 |
 
-Reading: the Simple (perihelion-longitude-only) statistics are exactly invariant to detection epoch, as they must be. The conditional-likelihood methods are NOT convention-invariant: on the current SCT26 sample the 3D significance slides 1.92 -> 1.70 -> 1.43 sigma across first/midpoint/last-observation conventions, the 2D from 1.74 to 1.10 sigma, and the best-fit direction swings ~28 deg. The older BB21 subsample is steadier (2.40 -> 2.09 sigma). So the surviving post-2026 clustering signal (~1.9 sigma) is not only weak; its strength depends materially on a processing convention, and under the last-observation convention it would sit near 1.1-1.4 sigma.
+Reading: Simple statistics are exactly invariant (they use only orbital elements). The CL statistic responds to the ~11 deg median input perturbation with ~0.3-0.6 sigma of movement (SCT26 3D: 1.92 -> 1.43; 2D: 1.74 -> 1.10; direction up to ~28 deg) - roughly 0.05 sigma per degree of input displacement. This quantifies how precisely detection geometry must be recorded for the method (few-degree accuracy matters) and validates that the paper's choice of detection epoch is a load-bearing input worth documenting exactly. It is NOT evidence that the published significance is an artifact; establishing that would require showing an equally valid analysis with different inputs, which these synthetic perturbations are not.
 
-Limits: variants use propagated geometry from current orbit solutions (two-body), not the actual astrometry at those dates; the paper's convention is first-observation, so baseline anchors remain the reference; these shifts measure convention sensitivity, not which convention is correct; SBDB solutions are current as of 2026-10-27 and themselves evolve. New analysis by this project, not peer reviewed. Code: p9audit/robustness.py. Data: data/sct26-sample.json, data/sct26-elements-full.json (JPL SBDB/Horizons, retrieval dates recorded).
+Limits: variants use propagated geometry from current orbit solutions (two-body), not actual astrometry; SBDB solutions evolve over time; this is a numerical sensitivity measurement by this project, not peer reviewed. Code: p9audit/robustness.py. Data: data/sct26-sample.json, data/sct26-elements-full.json.
