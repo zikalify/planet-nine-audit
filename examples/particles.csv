@@ -1,0 +1,5 @@
+model,particle,weight
+narrow,toy-a,3
+narrow,toy-b,1
+broad,toy-a,1
+broad,toy-b,3

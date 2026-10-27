@@ -1,0 +1,8 @@
+{
+  "label": "Two toy models illustrate prior sensitivity and shared-image dependence",
+  "synthetic": true,
+  "coordinate_epoch": "Not applicable: no coordinates in the toy matrix",
+  "probability_definition": "Invented survey-level chance of an accepted detection for each particle",
+  "independent_groups_assumption": "Toy groups use independent noise. Real shared masks, calibration or linkage failures require the same group or a joint model.",
+  "model_sources": {"narrow": "Synthetic, hand-written weights, not Brown/Batygin", "broad": "Synthetic, hand-written weights, not a 2026 posterior"}
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "warning": "SYNTHETIC DEMO. Not actual sky constraints.",
+  "metadata": {
+    "label": "Two toy models illustrate prior sensitivity and shared-image dependence",
+    "synthetic": true,
+    "coordinate_epoch": "Not applicable: no coordinates in the toy matrix",
+    "probability_definition": "Invented survey-level chance of an accepted detection for each particle",
+    "independent_groups_assumption": "Toy groups use independent noise. Real shared masks, calibration or linkage failures require the same group or a joint model.",
+    "model_sources": {
+      "narrow": "Synthetic, hand-written weights, not Brown/Batygin",
+      "broad": "Synthetic, hand-written weights, not a 2026 posterior"
+    }
+  },
+  "inputs_sha256": {
+    "particles.csv": "fb014fd77fbf07bf8b1cb89c9021844fd9941d469fa4ef4ffb059f4ed9192418",
+    "searches.csv": "b0eb5d94f475c2be8fb82a9118b484471737cb2c82022fbb871a958a42b4807e",
+    "detections.csv": "0e8ee2478d5bbf70a203912ab8688f0834471eee816fb5ecfc42aa5055f933b0",
+    "metadata.json": "769cd285bf6b0f0b7dcdad42ccce00cc89709d59df9bfe78b2d32208d14a5c47"
+  },
+  "selected_searches": [
+    "archive-a",
+    "archive-b"
+  ],
+  "coverage_by_model": {
+    "broad": {
+      "lower": 0.35,
+      "upper": 0.47500000000000003
+    },
+    "narrow": {
+      "lower": 0.6500000000000001,
+      "upper": 0.825
+    }
+  },
+  "null_likelihood_by_model": {
+    "broad": {
+      "lower": 0.5249999999999999,
+      "upper": 0.65
+    },
+    "narrow": {
+      "lower": 0.17500000000000004,
+      "upper": 0.34999999999999987
+    }
+  },
+  "followup_rank": [
+    {
+      "search": "south-field",
+      "gain_by_model": {
+        "broad": {
+          "lower": 0.47250000000000003,
+          "upper": 0.545
+        },
+        "narrow": {
+          "lower": 0.1575,
+          "upper": 0.195
+        }
+      },
+      "worst_model_lower_gain": 0.1575
+    },
+    {
+      "search": "north-field",
+      "gain_by_model": {
+        "broad": {
+          "lower": 0.05249999999999999,
+          "upper": 0.10500000000000001
+        },
+        "narrow": {
+          "lower": 0.017499999999999998,
+          "upper": 0.15499999999999997
+        }
+      },
+      "worst_model_lower_gain": 0.017499999999999998
+    }
+  ],
+  "assumptions": [
+    "Groups conditionally independent given each particle; within-group dependence unknown.",
+    "Null likelihood assumes no accepted detection and a correct input detection model.",
+    "Candidate ranking is worst-model lower incremental coverage, not discovery probability.",
+    "No inference about whether Planet Nine exists; no automatic new literature ingestion."
+  ]
+}

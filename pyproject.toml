@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p9audit"
+version = "0.1.0"
+description = "Model-sensitive audit of hypothetical distant-planet search coverage"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+p9audit = "p9audit.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["p9audit*"]

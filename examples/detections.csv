@@ -1,0 +1,17 @@
+model,particle,search,p_detect
+narrow,toy-a,archive-a,0.8
+narrow,toy-a,archive-b,0.7
+narrow,toy-a,north-field,0.9
+narrow,toy-a,south-field,0.1
+narrow,toy-b,archive-a,0.1
+narrow,toy-b,archive-b,0.2
+narrow,toy-b,north-field,0.1
+narrow,toy-b,south-field,0.9
+broad,toy-a,archive-a,0.8
+broad,toy-a,archive-b,0.7
+broad,toy-a,north-field,0.9
+broad,toy-a,south-field,0.1
+broad,toy-b,archive-a,0.1
+broad,toy-b,archive-b,0.2
+broad,toy-b,north-field,0.1
+broad,toy-b,south-field,0.9

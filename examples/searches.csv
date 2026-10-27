@@ -1,0 +1,5 @@
+search,dependence_group,source
+archive-a,shared-images,SYNTHETIC archive search A
+archive-b,shared-images,SYNTHETIC reprocessing of the same images
+north-field,new-north,SYNTHETIC follow-up with independent noise
+south-field,new-south,SYNTHETIC follow-up with independent noise
