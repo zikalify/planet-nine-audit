@@ -66,4 +66,6 @@ The self-contained interactive site is in `docs/index.html`. Open it locally to 
 
 Run the site arithmetic tests with `node tests/site.test.cjs`. Browser checks also exercised the controls, reset and JSON download, checked console errors, and verified no horizontal overflow at 320px and 390px widths.
 
-To publish on GitHub Pages: in this repo, Settings > Pages > Build and deployment > Source: Deploy from a branch > Branch: main > folder: /docs > Save. No custom workflow file or build dependencies are needed. GitHub may use its own Pages build process. The site URL is whatever GitHub shows after publishing; the repository alone does not prove the site is deployed.
+The repository also includes a root entry for Pages configured to publish main / (the setting found on the live repository). It uses the same assets under docs/site. No settings change is needed in that case.
+
+For a fresh /docs setup: in this repo, Settings > Pages > Build and deployment > Source: Deploy from a branch > Branch: main > folder: /docs > Save. No custom workflow file or build dependencies are needed. GitHub may use its own Pages build process. The site URL is whatever GitHub shows after publishing; the repository alone does not prove the site is deployed.
